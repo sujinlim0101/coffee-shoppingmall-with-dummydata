@@ -1,7 +1,7 @@
 import React from 'react';
-import "./css/Main1.css";
+import "./css/HomeMain1.css";
 
-class Main1 extends React.Component{
+class HomeMain1 extends React.Component{
     render(){
         return (
             <div className={"main1"}>
@@ -14,4 +14,4 @@ class Main1 extends React.Component{
     }
 }
 
-export default Main1;
+export default HomeMain1;
