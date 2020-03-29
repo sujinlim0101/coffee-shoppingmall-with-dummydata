@@ -3,21 +3,32 @@ import './App.css';
 import MyNav from "./components/MyNav";
 import HomeSection from "./components/HomeSection";
 import BeansSection from "./components/BeansSection"
-import {HashRouter, Route} from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import HomeMain1 from "./components/HomeMain1";
+import ToolsSection from "./components/ToolsSection";
+import AboutSection from "./components/AboutSection";
+import ContactSection from "./components/ContactSection";
 
 class App extends React.Component {
     render() {
         return (
-            <div className="App">
-                <HashRouter>
+            <Router>
+                <nav className="App">
                     <MyNav></MyNav>
-                    <div className={"empty1"}></div>
-                    <Route path={"/"} exact={true} component={HomeSection}/>
-                    <Route path={"/beans"} component={BeansSection}/>
-                </HashRouter>
-            </div>
+                </nav>
+                <Switch>
+                    <Route path="/" exact={true} component={HomeMain1}/>
+                    <Route path="/beans" component={BeansSection}/>
+                    <Route path="/tools" component={ToolsSection}/>
+                    <Route path="/about" component={AboutSection}/>
+                    <Route path="/contact" component={ContactSection}/>
+                </Switch>
+            </Router>
         );
     }
 }
+
+
+
 
 export default App;

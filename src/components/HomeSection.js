@@ -6,7 +6,7 @@ import "./css/MySection.css"
 class HomeSection extends React.Component{
     render(){
         return(
-            <section className={"section container"}>
+            <section className={"section"}>
                 <HomeMain1></HomeMain1>
                 <HomeMain2></HomeMain2>
             </section>

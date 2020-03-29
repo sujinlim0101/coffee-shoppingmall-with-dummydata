@@ -1,10 +1,11 @@
 import React from "react";
+import ItemList from "./ItemList";
 
 class BeansSection extends React.Component{
     render(){
         return (
-            <div>
-                <h1>땅콩</h1>
+            <div className={"container"}>
+                <ItemList item={"beans"}></ItemList>
             </div>
         );
     }
