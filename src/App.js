@@ -8,6 +8,9 @@ import HomeMain1 from "./components/HomeMain1";
 import ToolsSection from "./components/ToolsSection";
 import AboutSection from "./components/AboutSection";
 import ContactSection from "./components/ContactSection";
+import Detail from "./components/Detail";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
 
 class App extends React.Component {
     render() {
@@ -16,12 +19,15 @@ class App extends React.Component {
                 <nav className="App">
                     <MyNav></MyNav>
                 </nav>
+                <div className={"empty"}></div>
                 <Switch>
-                    <Route path="/" exact={true} component={HomeMain1}/>
+                    <Route path="/" exact={true} component={HomeSection}/>
                     <Route path="/beans" component={BeansSection}/>
                     <Route path="/tools" component={ToolsSection}/>
                     <Route path="/about" component={AboutSection}/>
                     <Route path="/contact" component={ContactSection}/>
+                    <Route path="/login" component={Login}/>
+                    <Route path="/signup" component={Signup}/>
                 </Switch>
             </Router>
         );
