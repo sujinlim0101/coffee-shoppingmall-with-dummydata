@@ -7,9 +7,7 @@
     height: 90px;
     border-bottom: solid 1px #aaaaaa;
 }
-.logo{
 
-}
 .signinup{
     position: fixed;
     right: 20px;
@@ -30,8 +28,5 @@
     margin-left: 10px;
 }
 .empty{
-    height:20px;
-}
-.navbar{
-    border-bottom: 1px solid grey;
+    height:5px;
 }

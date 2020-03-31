@@ -1,15 +1,11 @@
 import React from 'react';
 import "./css/HomeMain1.css";
+import Mycarousel from './Mycarousel';
 
 class HomeMain1 extends React.Component{
     render(){
         return (
-            <div className={"main1 container"}>
-                <img src={require('./../images/main1.jpg')} alt="Logo"
-                     width={"100%"}
-                     height={400}
-                />
-            </div>
+            <Mycarousel></Mycarousel>
         );
     }
 }
