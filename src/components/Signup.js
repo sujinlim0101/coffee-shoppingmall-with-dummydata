@@ -24,11 +24,11 @@ export default class SignUp extends Component {
                     </div>
                     <div className="form-group">
                         <label>주소</label>
-                        <input type="password" className="form-control" placeholder="Enter Address" />
+                        <input type="text" className="form-control" placeholder="Enter Address" />
                     </div>
                     <div className="form-group">
                         <label>전화번호</label>
-                        <input type="password" className="form-control" placeholder="Enter Phone number" />
+                        <input type="text" className="form-control" placeholder="Enter Phone number" />
                     </div>
 
                     <button type="submit" className="btn-block btn btn-success">가입하기</button>
