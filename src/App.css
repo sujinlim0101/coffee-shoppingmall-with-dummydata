@@ -1,10 +1,14 @@
-  Link.custom-card,
-  Link.custom-card:hover {
-    color: inherit;
-    text-decoration: none;
-  }
+Link.custom-card,
+Link.custom-card:hover {
+  color: inherit;
+  text-decoration: none;
+}
 
-  .btn-success, .btn-succee:hover, .btn-success:active, .btn-success:visited {
-    background-color: #ff8a57!important;
-    border-color:#ff8a57!important;
+.btn-success, .btn-succee:hover, .btn-success:active, .btn-success:visited {
+  background-color: #ff8a57!important;
+  border-color:#ff8a57!important;
+}
+
+.carousel-caption {
+  text-shadow: #444242a6 0 0 5px;;
 }

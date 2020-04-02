@@ -6,20 +6,20 @@ const Mycarousel = () => {
   return(
 <Carousel style={{position: "relative"}}>
   <Carousel.Item>
-    <img
+    <img width={1600} 
+      height={401}
       className="d-block"
-      src="https://i.picsum.photos/id/231/2560/401.jpg"
-      alt="First slide"
-    />
+      src= {require("../images/manycups.jpg")} 
+      alt="First slide" 
+    /> 
     <Carousel.Caption>
-      <h3>First slide label</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+      <h2> 3일 안에 볶은 커피만 보냅니다. <br/>신선한 원두를 만나보세요.</h2>
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
     <img
       className="d-block "
-      src="https://picsum.photos/id/232/2560/401"
+      src="https://picsum.photos/id/253/2560/401"
       alt="Third slide"
     />
 

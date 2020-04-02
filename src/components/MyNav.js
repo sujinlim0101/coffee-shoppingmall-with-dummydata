@@ -11,7 +11,7 @@ class MyNav extends React.Component {
             <Navbar collapseOnSelect expand="lg" bg="white" variant="light" className={"navbar container-fluid mb-0"} style={{ textAlign:"center", boxShadow:  "rgba(37, 37, 40, 0.06) 0px 4px 4px"}}>
                 <div className={"container"}>
                     <Link to="/" className={"logo mr-5"}>
-                        <img src={require('./../images/'+'Logo2.png') } alt="Logo"
+                        <img src={require('./../images/Logo2.png') } alt="Logo"
                              width={130}/>
                     </Link>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
