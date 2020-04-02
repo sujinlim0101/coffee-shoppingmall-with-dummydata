@@ -12,3 +12,12 @@ Link.custom-card:hover {
 .carousel-caption {
   text-shadow: #444242a6 0 0 5px;;
 }
+
+.card a {
+  text-decoration: none;
+  color: #666;
+}
+.card a:hover, a:active {
+  text-decoration: none;
+  color: #333;
+}
