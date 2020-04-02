@@ -29,12 +29,13 @@ const Mycarousel = () => {
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
-    <img
+  <img
       className="d-block "
-      src="https://picsum.photos/id/233/2560/401"
+      width={1600} 
+      height={401}
+      src={require("../images/coffebrew.jpg")} 
       alt="Third slide"
     />
-
     <Carousel.Caption>
       <h3>Third slide label</h3>
       <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
