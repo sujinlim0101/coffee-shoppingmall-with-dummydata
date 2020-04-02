@@ -1,13 +1,17 @@
 import React, {Component} from "react";
-import '../App.css';
+import './css/Login.css';
+import { Link } from "react-router-dom";
 
 export default class Login extends Component {
     render() {
         return (
-            <form className="formInner container">
-                <h3>로그인</h3>
+            <div>
+            <div style={{height:"70px"}}></div>
+            <form className="formInner container pt-5">
+                
+                <h3  className="mb-4"style={{textAlign:"center"}}>로그인</h3>
 
-                <div className="form-group">
+                <div className="form-group ">
                     <label>이메일</label>
                     <input type="email" className="form-control" placeholder="Enter email"/>
                 </div>
@@ -21,9 +25,13 @@ export default class Login extends Component {
                     <div className="custom-control custom-checkbox">
                         <input type="checkbox" className="custom-control-input" id="customCheck1"/>
                     </div>
+                    <button type="submit" className="btn-block btn btn-success">확인</button>
                 </div>
-                <button type="submit" className="btn-block btn btn-success">확인</button>
+               
+                <p className="mt-4" style={{fontSize:"small"}}>아직 회원이 아니시라면? <Link to="./signup" style={{fontSize:"small"}}> 회원가입</Link></p>
             </form>
+            <div style={{height:"150px"}}></div>
+            </div>
         );
     }
 }

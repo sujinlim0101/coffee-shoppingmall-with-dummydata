@@ -1,0 +1,9 @@
+.formInner {
+    width: 340px;
+    margin: auto;
+    background: #ffffff;
+    border: 1px solid #f4eaea;
+    padding: 40px 55px 45px 55px;
+    border-radius: 15px;
+    transition: all .3s;
+  }

@@ -1,0 +1,10 @@
+  Link.custom-card,
+  Link.custom-card:hover {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .btn-success, .btn-succee:hover, .btn-success:active, .btn-success:visited {
+    background-color: #ff8a57!important;
+    border-color:#ff8a57!important;
+}

@@ -9,24 +9,29 @@ import AboutSection from "./components/AboutSection";
 import ContactSection from "./components/ContactSection";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
+import Footer from "./components/Footer"
 
 class App extends React.Component {
     render() {
         return (
             <Router>
                 <div className="App">
-                <MyNav></MyNav>
+                    <MyNav></MyNav>            
+                    <Switch>
+                        <Route path="/" exact={true} component={HomeSection}/>
+                        <Route path="/beans" component={BeansSection}/>
+                        <Route path="/tools" component={ToolsSection}/>
+                        <Route path="/about" component={AboutSection}/>
+                        <Route path="/contact" component={ContactSection}/>
+                        <Route path="/login" component={Login}/>
+                        <Route path="/signup" component={Signup}/>
+                    </Switch>
+                    <Footer></Footer>                 
+                </div>
+
+            </Router>
+
                
-                <Switch>
-                    <Route path="/" exact={true} component={HomeSection}/>
-                    <Route path="/beans" component={BeansSection}/>
-                    <Route path="/tools" component={ToolsSection}/>
-                    <Route path="/about" component={AboutSection}/>
-                    <Route path="/contact" component={ContactSection}/>
-                    <Route path="/login" component={Login}/>
-                    <Route path="/signup" component={Signup}/>
-                </Switch>
-                </div></Router>
         );
     }
 }

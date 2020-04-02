@@ -3,7 +3,7 @@ import React, { Component } from "react";
 export default class SignUp extends Component {
     render() {
         return (
-            <form className="formInner">
+            <form className="formInner mt-5">
                 <h3>회원가입</h3>
 
                 <div className="form-group">
