@@ -6,14 +6,17 @@ const Mycarousel = () => {
   return(
 <Carousel style={{position: "relative"}}>
   <Carousel.Item>
-    <img width={1600} 
+    <img width={2560} 
       height={401}
       className="d-block"
       src= {require("../images/manycups.jpg")} 
       alt="First slide" 
     /> 
     <Carousel.Caption>
-      <h2> 3일 안에 볶은 커피만 보냅니다. <br/>신선한 원두를 만나보세요.</h2>
+      <h3> 우린 직접 커피를 볶습니다. </h3>
+      <h5> 3일 안에 볶은 신선한 원두로</h5>
+      <h5>하루를 시작해보세요!</h5>
+     
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
@@ -24,21 +27,23 @@ const Mycarousel = () => {
     />
 
     <Carousel.Caption>
-      <h3>Second slide label</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <h3>우리는 커피도 볶지만</h3>
+      <h5>맛있는 콩을 카페에도 제공합니다. </h5>
+      <h5>우리에 대해 더 알아봐요.</h5>
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
   <img
       className="d-block "
-      width={1600} 
+      width={2560} 
       height={401}
       src={require("../images/coffebrew.jpg")} 
       alt="Third slide"
     />
     <Carousel.Caption>
-      <h3>Third slide label</h3>
-      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+      <h3>커피도 도구가 중요한가요?</h3>
+      <h5>그렇죠! 좋은 기구로 맛있는 </h5>
+      <h5> 커피를 경험하세요.</h5>
     </Carousel.Caption>
   </Carousel.Item>
 </Carousel>
