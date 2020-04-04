@@ -8,6 +8,10 @@ Link.custom-card:hover {
   background-color: #ff8a57!important;
   border-color:#ff8a57!important;
 }
+.btn-outline-success {
+  color: #ff8a57!important;
+  border-color: #ff8a57!important;
+}
 
 .carousel-caption {
   text-shadow: #444242a6 0 0 5px;;

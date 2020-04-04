@@ -19,7 +19,7 @@ const Mycarousel = () => {
   <Carousel.Item>
     <img
       className="d-block "
-      src="https://picsum.photos/id/253/2560/401"
+      src="https://picsum.photos/id/425/2560/401"
       alt="Third slide"
     />
 

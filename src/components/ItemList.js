@@ -11,9 +11,9 @@ class ItemList extends React.Component {
         };
         
         if (props.item === 'beans') {
-            this.state.url = '/beans.json';
+            this.state.url = '/featuredBeans.json';
         } else if (props.item === 'tools') {
-            this.state.url = '/tools.json';
+            this.state.url = '/featuredTools.json';
         }
     }
     componentWillMount() {
@@ -22,9 +22,9 @@ class ItemList extends React.Component {
         .then((result) => {
             console.log(result);
             this.setState({
-              isLoaded: true,
-              title: result.title,
-              items: result.items,
+                isLoaded: true,
+                title: null,
+                items: result.items,
             });
           },
           // Note: it's important to handle errors here
@@ -32,8 +32,8 @@ class ItemList extends React.Component {
           // exceptions from actual bugs in components.
           (error) => {
             this.setState({
-              isLoaded: true,
-              error
+                isLoaded: true,
+                error
             });
           }
         )
@@ -41,11 +41,10 @@ class ItemList extends React.Component {
     render() {
         return (
             <div>
-                <h4 className="mb-4 pb-2" style={{borderBottom: "solid 1px #efecec"}}>{this.state.title}</h4>
-                <div className="row">
+                    <div className="row">
                     {this.state.items.map((item, i) => {
                         return (
-                            <ItemInfo name={item.name} image={item.image} description={item.description} key={item.id}/>);
+                            <ItemInfo title={item.title} src={item.src} price={item.price} key={item.id}/>);
                     })
                     }
                 </div>

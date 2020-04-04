@@ -20,7 +20,6 @@ class Detail extends React.Component {
       title: '케냐 아라비카 오가닉 스페셜',
       subtitle: '오가닉 스페셜 원두, 데이라이트에서 직접 볶은 원두입니다.',
       price : '15,000원',
-      weight :'600g',
       origin:'kenya',
       descTitle1:'케냐 원두',
       desc1: '케냐 - 잘 익은 체리만 손으로 직접 수확하며 수세식 가공 후 선별 역시 핸드픽으로 하는 것이 특징이다. 원두의 크기에 따라 AA, AB 등의 등급으로 나뉜다. 잘 익은 포도나 건포도를 연상시키는 신맛과 자몽을 연상시키는 상큼한 과일향이 특징이다. 전체적으로 밝은 느낌을 주며 아이스로 마셔도 그 개성이 잘 드러나기 때문에 아이스커피로의 선호도가 매우 높은 편이다.',
@@ -64,10 +63,6 @@ class Detail extends React.Component {
             <div className="row">
               <div class="col-12 mt-3">
                 <table style={{borderBottom:'1px solid #efecec' ,width:'100%'}} cellpadding="10">
-                <tr style={{borderBottom:'1px solid #efecec'}}>
-                  <td style={{width:'30%', color:'gray'}}>중량</td>
-                  <td>{this.state.product.weight}</td>
-                </tr>
                 <tr style={{borderBottom:'1px solid #efecec'}}>
                   <td style={{color:'gray'}}>원산지</td>
                   <td>{this.state.product.origin}</td>
