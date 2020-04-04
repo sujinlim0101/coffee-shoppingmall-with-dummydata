@@ -5,10 +5,10 @@ class ItemInfo extends React.Component {
         return (
             <div className="col-6 col-sm-4 col-md-3">
                 <div className="card" style={{border: "none"}}>
-                        <Link to={`products/${this.props.id}`}>
-                        <img src={this.props.src} className="card-img-top" alt={this.props.title}/>
+                        <Link to={`products/${this.props.item.id}`} state={this.props.item}>
+                        <img src={this.props.item.src} className="card-img-top" alt={this.props.item.title}/>
                         <div className="card-body">
-                            <p className="card-title mb-0">{this.props.title}</p>
+                            <p className="card-title mb-0">{this.props.item.title}</p>
                             <h6 className="card-text">{this.props.price}</h6>
                         </div>
                     </Link>

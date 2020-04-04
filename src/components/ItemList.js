@@ -20,7 +20,6 @@ class ItemList extends React.Component {
         fetch(this.state.url)
         .then(res => res.json())
         .then((result) => {
-            console.log(result);
             this.setState({
                 isLoaded: true,
                 title: null,
@@ -35,6 +34,7 @@ class ItemList extends React.Component {
                 isLoaded: true,
                 error
             });
+            console.log(error);
           }
         )
     }
@@ -44,7 +44,7 @@ class ItemList extends React.Component {
                     <div className="row">
                     {this.state.items.map((item, i) => {
                         return (
-                            <ItemInfo title={item.title} src={item.src} price={item.price} key={item.id}/>);
+                            <ItemInfo item={item} key={item.id}/>);
                     })
                     }
                 </div>
