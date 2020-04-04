@@ -8,9 +8,16 @@ Link.custom-card:hover {
   background-color: #ff8a57!important;
   border-color:#ff8a57!important;
 }
-.btn-outline-success {
+.btn-outline-success  {
   color: #ff8a57!important;
   border-color: #ff8a57!important;
+}
+.btn-outline-success:hover, .btn-outline-success:active, .btn-outline-success:visited{
+  background-color: #ff8a57!important;
+  color: #ffffff!important;
+  border-color: #ff8a57!important;
+
+
 }
 
 .carousel-caption {
