@@ -74,7 +74,7 @@ import React , { useState, useEffect } from 'react';
               <div class="col-12 mt-3">
                 <table style={{ borderBottom: '1px solid #efecec', width: '100%' }} cellpadding="10">
                   <tr style={{ borderBottom: '1px solid #efecec' }}>
-                    <td style={{ color: 'gray' }}>원산지</td>
+                    <td style={{ color: 'gray' }} width="30%">원산지</td>
                     <td>{this.state.product.origin}</td>
                   </tr>
                   <tr>
