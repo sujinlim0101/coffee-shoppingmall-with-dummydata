@@ -81,12 +81,12 @@ import React , { useState, useEffect } from 'react';
                     <td style={{ color: 'gray' }}>수량</td>
                     <td style={{ alignItems: 'center' }}>
                       <form className="row">
-                        <div className="input-group col-8 ">
+                        <div className="input-group col-6 col-sm-8 col-md-6 col-lg-4">
                           <div className="input-group-prepend">
                             <button className="btn btn-outline-secondary" type="button" onClick={this.minus}
                             >-</button>
                           </div>
-                          <input type="text" className="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" value={this.state.order.quantity} style={{ textAlign: 'center' }} />
+                          <input type="text" className="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" value={this.state.order.quantity} style={{ textAlign: 'center', text:"x-small"}} />
                           <div className="input-group-append">
                             <button className="btn btn-outline-secondary" type="button" onClick={this.add}>+</button>
                           </div>
