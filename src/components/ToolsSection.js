@@ -5,7 +5,7 @@ class ToolsSection extends React.Component{
     render(){
         return (
             <div className={"container"}>
-                <ItemList item={"tools"}></ItemList>
+                <ItemList item={"tools"} title={"TOOLS"}></ItemList>
             </div>
         );
     }

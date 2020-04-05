@@ -7,7 +7,7 @@ const Mycarousel = () => {
 <Carousel style={{position: "relative"}}>
   <Carousel.Item>
     <img width={2560} 
-      height={401}
+      height={450}
       className="d-block"
       src= {require("../images/manycups.jpg")} 
       alt="First slide" 
@@ -23,7 +23,7 @@ const Mycarousel = () => {
   <Carousel.Item>
     <img
       className="d-block "
-      src="https://picsum.photos/id/425/2560/401"
+      src="https://picsum.photos/id/425/2560/450"
       alt="Third slide"
     />
 
@@ -37,8 +37,8 @@ const Mycarousel = () => {
   <img
       className="d-block "
       width={2560} 
-      height={401}
-      src={require("../images/coffebrew.jpg")} 
+      height={450}
+      src={require("../images/brewing.jpg")} 
       alt="Third slide"
     />
     <Carousel.Caption>
