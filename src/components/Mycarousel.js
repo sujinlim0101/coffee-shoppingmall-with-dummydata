@@ -4,7 +4,7 @@ import Carousel from 'react-bootstrap/Carousel'
 
 const Mycarousel = () => {
   return(
-<Carousel style={{position: "relative"}}>
+<Carousel className="mycaro" style={{position: "relative"}}>
   <Carousel.Item>
     <img width={2560} 
       height={450}
