@@ -1,6 +1,6 @@
-import React from 'react';
-
-class Detail extends React.Component {
+import React , { useState, useEffect } from 'react';
+ class Detail extends React.Component {
+  
   constructor(props) {
     super(props);
     console.log(props);
@@ -13,12 +13,20 @@ class Detail extends React.Component {
         userId: 1
       }
     };
-  }
+  };
+ 
   minus = () => {
     var quantity = this.state.order.quantity;
-    quantity--;
+    if(quantity > 0){
+      quantity--
+    }else{
+      quantity = 0;
+    }
+   
     this.setState({ order: { quantity } });
+
   }
+
   add = () => {
     var quantity = this.state.order.quantity;
     quantity++;
@@ -46,7 +54,7 @@ class Detail extends React.Component {
         }
       )
   }
-  render() {
+  render(){ 
     return (
       <div className="container mt-3">
         <div className="row pb-5" style={{ borderBottom: '1px solid #efecec' }}>
@@ -109,7 +117,7 @@ class Detail extends React.Component {
         <br></br>
       </div>
     );
-  }
+  };
 };
 
 export default Detail;
