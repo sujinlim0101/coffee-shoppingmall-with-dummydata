@@ -20,10 +20,6 @@
         {"id": 5, "title": "과테말라 G2",
         "src": "https://picsum.photos/id/234/250/320", 
         "price": "15,000원"
-        },
-        {"id": 6, "title": "온두라스 G8", 
-        "src": "https://picsum.photos/id/236/250/320", 
-        "price": "15,000원"
         }
     ]
 }

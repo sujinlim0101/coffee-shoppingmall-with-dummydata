@@ -1,16 +1,17 @@
-.formInner {
-    width: 330px;
-    margin: auto;
-    background: #ffffff;
-    border: 1px solid #ded6d6;
-    padding: 40px 55px 45px 55px;
-    border-radius: 15px;
-    transition: all .3s;
-  }
-  h3{
-    text-align: center;
-  }
-  .backColor{
-    background: #fffdfc;
+.backColor{
+  background: #fffdfc;
+}
 
-  }
+.backColor .formInner {
+  width: 330px;
+  margin: auto;
+  background: #ffffff;
+  border: 1px solid #ded6d6;
+  padding: 40px 55px 45px 55px;
+  border-radius: 15px;
+  transition: all .3s;
+}
+
+.backColor h3 {
+  text-align: center;
+}

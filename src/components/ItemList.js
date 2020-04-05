@@ -10,10 +10,24 @@ class ItemList extends React.Component {
             title: null
         };
         
-        if (props.item === 'beans') {
-            this.state.url = '/featuredBeans.json';
-        } else if (props.item === 'tools') {
-            this.state.url = '/featuredTools.json';
+        if ('title'  in props) this.state.title = props.title;
+        console.log(this.state.title);
+        switch (props.item) {
+            case 'featuredBeans':
+                this.state.url = '/featuredBeans.json';
+                break;
+            case 'featuredTools':
+                this.state.url = '/featuredTools.json';
+                break;
+           case 'beans':
+                this.state.url = 'beans.json';
+                break;
+            case 'tools':
+                this.state.url = 'tools.json';
+                break;
+            default:
+                alert('Never get here');
+                break;
         }
     }
     componentWillMount() {
@@ -22,8 +36,8 @@ class ItemList extends React.Component {
         .then((result) => {
             this.setState({
                 isLoaded: true,
-                title: null,
                 items: result.items,
+                url:result.url
             });
           },
           // Note: it's important to handle errors here
@@ -41,6 +55,7 @@ class ItemList extends React.Component {
     render() {
         return (
             <div>
+                <h3>{this.state.title}</h3>                
                     <div className="row">
                     {this.state.items.map((item, i) => {
                         return (

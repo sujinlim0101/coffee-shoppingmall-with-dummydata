@@ -11,6 +11,7 @@ const Mycarousel = () => {
       className="d-block"
       src= {require("../images/manycups.jpg")} 
       alt="First slide" 
+      style={{filter:"blur(1px)"}}
     /> 
     <Carousel.Caption>
       <h3> 우린 직접 커피를 볶습니다. </h3>

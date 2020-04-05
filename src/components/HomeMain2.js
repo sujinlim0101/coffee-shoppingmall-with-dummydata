@@ -7,9 +7,9 @@ class HomeMain2 extends React.Component{
         return( 
             <div className={"container"}>
                 <div className="mt-5"></div>
-                <ItemList item={"beans"}></ItemList>
+                <ItemList item={"featuredBeans"} title={"이런 커피 어떼요?"}></ItemList>
                 <div className="mt-5"></div>
-                <ItemList item={"tools"}></ItemList>
+                <ItemList item={"featuredTools"} title={"요즘 뜨는 커피 도구!"}></ItemList>
             </div>
         );
     }
