@@ -11,6 +11,7 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Footer from "./components/Footer"
 import Detail from "./components/Detail"
+import CartSection from "./components/CartItem"
 
 
 class App extends React.Component {
