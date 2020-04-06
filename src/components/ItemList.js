@@ -10,21 +10,34 @@ class ItemList extends React.Component {
             title: null
         };
         
-        if (props.item === 'beans') {
-            this.state.url = '/beans.json';
-        } else if (props.item === 'tools') {
-            this.state.url = '/tools.json';
+        if ('title'  in props) this.state.title = props.title;
+        console.log(this.state.title);
+        switch (props.item) {
+            case 'featuredBeans':
+                this.state.url = '/featuredBeans.json';
+                break;
+            case 'featuredTools':
+                this.state.url = '/featuredTools.json';
+                break;
+           case 'beans':
+                this.state.url = 'beans.json';
+                break;
+            case 'tools':
+                this.state.url = 'tools.json';
+                break;
+            default:
+                alert('Never get here');
+                break;
         }
     }
     componentWillMount() {
         fetch(this.state.url)
         .then(res => res.json())
         .then((result) => {
-            console.log(result);
             this.setState({
-              isLoaded: true,
-              title: result.title,
-              items: result.items,
+                isLoaded: true,
+                items: result.items,
+                url:result.url
             });
           },
           // Note: it's important to handle errors here
@@ -32,20 +45,21 @@ class ItemList extends React.Component {
           // exceptions from actual bugs in components.
           (error) => {
             this.setState({
-              isLoaded: true,
-              error
+                isLoaded: true,
+                error
             });
+            console.log(error);
           }
         )
     }
     render() {
         return (
             <div>
-                <h4 className="mb-4 pb-2" style={{borderBottom: "solid 1px #efecec"}}>{this.state.title}</h4>
-                <div className="row">
+                <h3 className="mt-5 mb-4 pb-2">{this.state.title}</h3>                
+                    <div className="row">
                     {this.state.items.map((item, i) => {
                         return (
-                            <ItemInfo name={item.name} image={item.image} description={item.description} key={item.id}/>);
+                            <ItemInfo item={item} key={item.id}/>);
                     })
                     }
                 </div>

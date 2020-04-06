@@ -5,7 +5,7 @@ class BeansSection extends React.Component{
     render(){
         return (
             <div className={"container"}>
-                <ItemList item={"beans"}></ItemList>
+                <ItemList item={"beans"}  title={"BEANS"}></ItemList>
             </div>
         );
     }

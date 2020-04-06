@@ -1,0 +1,22 @@
+{
+    "cart": [
+        {"id": 1,
+        "title":"에티오피아1",
+        "quantity" :2,
+        "price":"15,000원",
+        "src":  "https://picsum.photos/id/231/250/320"
+        },
+        {"id": 2,
+        "title":"에티오피아2",
+        "quantity" :1,
+        "price":"15,000원",
+        "src":  "https://picsum.photos/id/231/250/320"
+        },
+        {"id": 3,
+        "title":"에티오피아3",
+        "quantity" :3,
+        "price":"15,000원",
+        "src":  "https://picsum.photos/id/231/250/320"
+        }
+    ]
+}

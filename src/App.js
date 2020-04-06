@@ -3,13 +3,16 @@ import './App.css';
 import MyNav from "./components/MyNav";
 import HomeSection from "./components/HomeSection";
 import BeansSection from "./components/BeansSection"
-import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import ToolsSection from "./components/ToolsSection";
 import AboutSection from "./components/AboutSection";
 import ContactSection from "./components/ContactSection";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Footer from "./components/Footer"
+import Detail from "./components/Detail"
+import CartSection from "./components/CartItem"
+
 
 class App extends React.Component {
     render() {
@@ -25,6 +28,7 @@ class App extends React.Component {
                         <Route path="/contact" component={ContactSection}/>
                         <Route path="/login" component={Login}/>
                         <Route path="/signup" component={Signup}/>
+                        <Route path="/products/:id" component={Detail}/>
                     </Switch>
                     <Footer></Footer>                 
                 </div>
@@ -35,8 +39,5 @@ class App extends React.Component {
         );
     }
 }
-
-
-
 
 export default App;
