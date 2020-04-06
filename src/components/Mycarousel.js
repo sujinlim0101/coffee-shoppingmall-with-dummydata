@@ -2,23 +2,25 @@ import React from 'react';
 import Carousel from 'react-bootstrap/Carousel'
 
 
+
 const Mycarousel = () => {
   return(
 <Carousel style={{position: "relative"}}>
   <Carousel.Item>
-    <img width={1600} 
+    <img
+      className="d-block " 
+      width={2560}
       height={401}
-      className="d-block"
       src= {require("../images/manycups.jpg")} 
       alt="First slide" 
     /> 
     <Carousel.Caption>
-      <h2> 3일 안에 볶은 커피만 보냅니다. <br/>신선한 원두를 만나보세요.</h2>
+      <p> 3일 안에 볶은 커피만 보내요. <br/>신선한 원두를 만나보세요.</p>
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
     <img
-      className="d-block "
+      className="d-block"
       src="https://picsum.photos/id/253/2560/401"
       alt="Third slide"
     />
@@ -31,7 +33,7 @@ const Mycarousel = () => {
   <Carousel.Item>
   <img
       className="d-block "
-      width={1600} 
+      width={2560}
       height={401}
       src={require("../images/coffebrew.jpg")} 
       alt="Third slide"
