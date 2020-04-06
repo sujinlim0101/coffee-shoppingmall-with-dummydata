@@ -29,7 +29,12 @@ import React , { useState, useEffect } from 'react';
 
   add = () => {
     var quantity = this.state.order.quantity;
-    quantity++;
+    if(quantity < 99){
+      quantity++;
+    }else{
+      quantity = 99;
+    }
+    
     this.setState({ order: { quantity } });
   }
   componentDidMount() {
