@@ -19,14 +19,8 @@ Link.custom-card:hover {
 }
 
 .carousel-caption {
-  text-shadow: 000000 0 0 9px;
-}
-
-
-@media (min-width:768px) { 
-  #my-carousel .carousel-inner .item {
-      height: 500px
-  }
+  text-shadow: #1d1616 0 0 3px;
+  ;
 }
 
 .card a {
@@ -37,3 +31,4 @@ Link.custom-card:hover {
   text-decoration: none;
   color: #333;
 }
+

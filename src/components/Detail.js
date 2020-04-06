@@ -61,8 +61,8 @@ import React , { useState, useEffect } from 'react';
   }
   render(){ 
     return (
-      <div className="container mt-3">
-        <div className="row pb-5" style={{ borderBottom: '1px solid #efecec' }}>
+      <div className="container mt-4">
+        <div className="row pb-5 " style={{ borderBottom: '1px solid #efecec' }}>
           <div className="col-sm-5">
             <img className="img-fluid" style={{ width: '100%' }} src={this.state.product.src} />
           </div>

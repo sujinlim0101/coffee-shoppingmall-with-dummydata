@@ -9,7 +9,7 @@ import AboutSection from "./components/AboutSection";
 import ContactSection from "./components/ContactSection";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
-import Footer from "./components/Footer"
+import FooterSection from "./components/FooterSection"
 import Detail from "./components/Detail"
 import CartSection from "./components/CartItem"
 
@@ -30,7 +30,7 @@ class App extends React.Component {
                         <Route path="/signup" component={Signup}/>
                         <Route path="/products/:id" component={Detail}/>
                     </Switch>
-                    <Footer></Footer>                 
+                    <FooterSection></FooterSection>                 
                 </div>
 
             </Router>
