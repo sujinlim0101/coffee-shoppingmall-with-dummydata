@@ -1,6 +1,6 @@
 import React , { useState, useEffect } from 'react';
  class Detail extends React.Component {
-  
+  //TODO: uerId 값을 context 또는 서버에서 처리.
   constructor(props) {
     super(props);
     console.log(props);

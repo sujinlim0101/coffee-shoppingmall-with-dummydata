@@ -2,7 +2,7 @@
     "items": [
         {"id": 9001, "title": "코스타리카 오가닉", 
         "subtitle": "오가닉 스페셜 원두, 데이라이트에서 직접 볶은 원두입니다.",
-        "src": "https://picsum.photos/id/231/250/320", 
+        "fileName": "드립세트_웨이브.png", 
         "price": "15,000원",
         "origin":"kenya",
         "descTitle1":"케냐 원두",
@@ -12,7 +12,7 @@
         "feature":true
         },
         {"id": 9002, "title": "에티오피아 예가체프", 
-        "src": "https://picsum.photos/id/232/250/320", 
+        "fileName": "드립세트_웨이브.png", 
         "price": "15,000원",
         "origin":"kenya",
         "descTitle1":"케냐 원두",
@@ -22,7 +22,7 @@
         "featured":true
         },
         {"id": 9003, "title": "에티오피아 시다모", 
-        "src": "https://picsum.photos/id/233/250/320", 
+        "fileName": "드립세트_웨이브.png", 
         "price": "15,000원",
         "origin":"kenya",
         "descTitle1":"케냐 원두",
@@ -32,7 +32,7 @@
         "feature":false
         },
         {"id": 9004, "title": "케냐 AA 오가닉 스페셜", 
-        "src": "https://picsum.photos/id/234/250/320", 
+        "fileName": "드립세트_웨이브.png", 
         "price": "15,000원",
         "origin":"kenya",
         "descTitle1":"케냐 원두",
@@ -42,7 +42,7 @@
         "featured":false
         },
         {"id": 9005, "title": "과테말라 G2", 
-        "src": "https://picsum.photos/id/234/250/320", 
+        "fileName": "드립세트_웨이브.png", 
         "price": "15,000원",
         "origin":"kenya",
         "descTitle1":"케냐 원두",
@@ -52,7 +52,7 @@
         "featured":true
         },
         {"id": 9006, "title": "온두라스 G8", 
-        "src": "https://picsum.photos/id/236/250/320", 
+        "fileName": "드립세트_웨이브.png", 
         "price": "15,000원",
         "origin":"kenya",
         "descTitle1":"케냐 원두",

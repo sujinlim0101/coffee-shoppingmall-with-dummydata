@@ -11,8 +11,8 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import FooterSection from "./components/FooterSection"
 import Detail from "./components/Detail"
-import CartSection from "./components/CartItem"
-
+import CartSection from './components/CartSection';
+import OrderSection from './components/OrderSection';
 
 class App extends React.Component {
     render() {
@@ -29,6 +29,8 @@ class App extends React.Component {
                         <Route path="/login" component={Login}/>
                         <Route path="/signup" component={Signup}/>
                         <Route path="/products/:id" component={Detail}/>
+                        <Route path="/cart" component={CartSection}/>
+                        <Route path="/order/:sellID" component={OrderSection}/>
                     </Switch>
                     <FooterSection></FooterSection>                 
                 </div>

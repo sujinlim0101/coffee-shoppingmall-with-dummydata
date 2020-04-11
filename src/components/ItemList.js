@@ -55,7 +55,7 @@ class ItemList extends React.Component {
     render() {
         return (
             <div>
-                <h3 className="mt-5 mb-4 pb-2">{this.state.title}</h3>                
+                <h3 className="mt-5 mb-4 pb-2" style={{textAlign:"center"}}>{this.state.title}</h3>                
                     <div className="row">
                     {this.state.items.map((item, i) => {
                         return (

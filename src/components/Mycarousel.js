@@ -5,7 +5,7 @@ import Carousel from 'react-bootstrap/Carousel'
 
 const Mycarousel = () => {
   return(
-<Carousel className="mycaro" style={{position: "relative"}}>
+<Carousel className="mycaro mb-5" style={{position: "relative"}}>
   <Carousel.Item>
 
     <img width={2560} 
@@ -18,7 +18,7 @@ const Mycarousel = () => {
     /> 
     <Carousel.Caption>
       <h3> 우린 직접 커피를 볶습니다. </h3>
-      <h5> 3일 안에 볶은 신선한 원두로</h5>
+      <h5> 당일 볶은 신선한 원두로</h5>
       <h5>하루를 시작해보세요!</h5>
      
     </Carousel.Caption>

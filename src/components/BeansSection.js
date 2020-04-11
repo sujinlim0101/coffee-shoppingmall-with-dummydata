@@ -1,5 +1,7 @@
 import React from "react";
 import ItemList from "./ItemList";
+import { GiCoffeeBeans } from 'react-icons/gi';
+
 
 class BeansSection extends React.Component{
     render(){
