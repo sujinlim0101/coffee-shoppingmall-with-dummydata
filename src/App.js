@@ -34,7 +34,6 @@ class App extends React.Component {
                     </Switch>
                     <FooterSection></FooterSection>                 
                 </div>
-
             </Router>
 
                
