@@ -17,9 +17,9 @@ const Mycarousel = () => {
       style={{filter:"blur(1px)"}}
     /> 
     <Carousel.Caption>
-      <h3> 우린 직접 커피를 볶습니다. </h3>
-      <h5> 당일 볶은 신선한 원두로</h5>
-      <h5>하루를 시작해보세요!</h5>
+      <h3> 데이라이트는 48시간 이내</h3>
+      <h5>볶은 원두를 보냅니다.</h5>
+      <h5>좋은 커피를 맛보세요!</h5>
      
     </Carousel.Caption>
   </Carousel.Item>
