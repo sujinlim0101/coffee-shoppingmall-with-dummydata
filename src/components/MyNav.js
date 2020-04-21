@@ -8,7 +8,8 @@ class MyNav extends React.Component {
     render() {
         return (
 
-            <Navbar collapseOnSelect expand="lg" bg="white" variant="light" className={"navbar container-fluid sticky-top"} style={{ textAlign:"center", boxShadow:  "rgba(37, 37, 40, 0.06) 0px 4px 4px", marginBottom:"2px"}}>
+            <Navbar collapseOnSelect expand="lg" bg="white" variant="light" className={"navbar container-fluid sticky-top"} style={{ textAlign:"center", 
+            boxShadow:  "rgba(190, 187, 187, 0.56) 0px 4px 4px"}}>
                 <div className={"container"}>
                     <Link to="/" className={"logo mr-5"}>
                         <img src={require('./../images/daylogo.png')} alt="Logo"
