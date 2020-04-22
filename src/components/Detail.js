@@ -61,10 +61,10 @@ import React , { useState, useEffect } from 'react';
   }
   render(){ 
     return (
-      <div className="container mt-4">
-        <div className="row pb-5 " style={{ borderBottom: '1px solid #efecec' }}>
+      <div className="container mt-5">
+        <div className="row pb-5 " style={{ borderBottom: '1px solid rgb(209, 203, 203)' }}>
           <div className="col-sm-5">
-            <img className="img-fluid" style={{ width: '100%' }} src={this.state.product.src} />
+            <img className="img-fluid" style={{ width: '100%' }} src={this.state.product.mainimg} />
           </div>
           <div className="col-sm-7">
             <div className="mt-2">
@@ -110,14 +110,27 @@ import React , { useState, useEffect } from 'react';
             </div>
           </div>
         </div>
-        <div className="mt-5">
-          <h4>{this.state.product.descTitle1}</h4>
-          <p>{this.state.product.desc1}</p>
+        <div>
+          <img className="img-fluid mt-5 mb-4 center" src={this.state.product.subimg} style={{marginLeft:"auto", marginRight:"auto", display: "block"}}></img>
+        </div>
+        <h3 className="mt-4 pb-4 mx-5" style={{color:"#5f5c5c", textAlign:"center"}}>[{this.state.product.title}]</h3>
+        <h5 className="pb-4 mx-5 pt-4"style={{color:"#5f5c5c", textAlign:"center", 
+          borderTop:"1px solid rgb(250, 181, 140)", borderBottom:"1px solid rgb(250, 181, 140)",backgroundColor:"#fffcf8"}}>{this.state.product.subtitle}</h5>
+        <h2  className="pb-4" style={{color:"#5f5c5c", textAlign:"center", marginTop:"80px"}}>
+          <img width={40} height={40} src={require('./../images/orangecheck.png')}/> 데이라이트 Check Point</h2>
+        <div>
+          <h4 className="mt-4">{this.state.product.descTitle1}</h4>
+          <p className="mt-3">{this.state.product.descript1}</p>
         </div>
         <div>
-          <h4>{this.state.product.descTitle2}</h4>
-          <p>{this.state.product.desc2}</p>
+          <h4 className="mt-4">{this.state.product.descTitle2}</h4>
+          <p className="mt-3">{this.state.product.descript2}</p>
         </div>
+          <div>
+            <h4 className="mt-4">{this.state.product.descTitle3}</h4>
+            <p className="mt-3">{this.state.product.descript3}</p>
+          </div>
+        
         <br></br>
         <br></br>
       </div>
