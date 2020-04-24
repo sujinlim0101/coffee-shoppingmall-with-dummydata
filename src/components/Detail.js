@@ -38,7 +38,7 @@ import React , { useState, useEffect } from 'react';
     this.setState({ order: { quantity } });
   }
   componentDidMount() {
-    const productId = this.props.match.params.id;
+    const productId = this.props.match.params.productID;
     fetch('/detail-' + productId + '.json')
       .then(res => res.json())
       .then((result) => {
@@ -117,10 +117,10 @@ import React , { useState, useEffect } from 'react';
         <h5 className="pb-4 mx-5 pt-4"style={{color:"#5f5c5c", textAlign:"center", 
           borderTop:"1px solid rgb(250, 181, 140)", borderBottom:"1px solid rgb(250, 181, 140)",backgroundColor:"#fffcf8"}}>{this.state.product.subtitle}</h5>
         <h2  className="pb-4" style={{color:"#5f5c5c", textAlign:"center", marginTop:"80px"}}>
-          <img width={40} height={40} src={require('./../images/orangecheck.png')}/> 데이라이트 Check Point</h2>
+          <img width={25} height={25} src={require('./../images/orangecheck.png')}/> 데이라이트 Check Point</h2>
         <div>
-          <h4 className="mt-4">{this.state.product.descTitle1}</h4>
-          <p className="mt-3">{this.state.product.descript1}</p>
+          <h4 className="mt-4" dangerouslySetInnerHTML={ {__html:this.state.product.descTitle1} }></h4>
+          <p className="mt-3" dangerouslySetInnerHTML={ {__html:this.state.product.descript1} }></p>
         </div>
         <div>
           <h4 className="mt-4">{this.state.product.descTitle2}</h4>

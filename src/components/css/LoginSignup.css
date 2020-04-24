@@ -15,3 +15,12 @@
 .backColor h3 {
   text-align: center;
 }
+.signup .signupForm{
+  width: 355px;
+  margin: auto;
+  background: #ffffff;
+  border: 1px solid #ded6d6;
+  padding: 20px 20px 20px 20px;
+  border-radius: 15px;
+  transition: all .3s;
+}

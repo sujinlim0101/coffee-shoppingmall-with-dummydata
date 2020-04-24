@@ -9,7 +9,7 @@ class MyNav extends React.Component {
         return (
 
             <Navbar collapseOnSelect expand="lg" bg="white" variant="light" className={"navbar container-fluid sticky-top"} style={{ textAlign:"center", 
-            boxShadow:  "rgba(190, 187, 187, 0.56) 0px 4px 4px"}}>
+            boxShadow:  "rgb(246, 204, 152) 0px 2px 3px" }} width={150}>
                 <div className={"container"}>
                     <Link to="/" className={"logo mr-5"}>
                         <img src={require('./../images/daylogo.png')} alt="Logo"

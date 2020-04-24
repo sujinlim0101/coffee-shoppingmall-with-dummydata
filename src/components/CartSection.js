@@ -153,32 +153,29 @@ class CartSection extends React.Component {
                   return (
                     <tr className="" key={i}>
                       <td style={{itemAlign:"center"}} ><input type="checkbox" checked={item.checked} onChange={this.check.bind(this, i)}/>
-                        <img className="ml-3 img-fluid" src={item.src} 
-                        width={60} height={80}/></td>
+                        <img className="ml-3 img-fluid" src={item.src} width={60} height={80}/></td>
                       <td className="">
                         <p style={{overflow:"visible" ,fontSize:"small" }}>{item.title}</p>
                         <p style={{fontSize:"x-small"}}>{item.price}원</p>
                       </td>
                       <td className="" width={120} style={{verticalAlign: 'middle'}}>
-                        <quantity className="">
-                            <div className="input-group">
-                              <div className="input-group-prepend">
-                                <button className="btn btn-outline-secondary" 
+                          <div className="input-group">
+                            <div className="input-group-prepend">
+                              <button className="btn btn-outline-secondary" 
                                 type="button" onClick={this.minus.bind(this, i, item)}
                                 style={{ height:"22px", textAlign: 'center', fontSize:"5px", float:"left"}}
-                                >-</button>
-                              </div>
-                              <input type="text" className="form-control px-0" placeholder="" aria-label="" 
-                                aria-describedby="basic-addon1" value={item.ea} 
-                                style={{ height:"22px", padding:"5px", textAlign: 'center', fontSize:"x-small",float:"left"}} />
-                              <div className="input-group-append">
-                                <button className="btn btn-outline-secondary" 
+                              >-</button>
+                            </div>
+                            <input type="text" className="form-control px-0" placeholder="" aria-label="" 
+                              aria-describedby="basic-addon1" value={item.ea} 
+                              style={{ height:"22px", padding:"5px", textAlign: 'center', fontSize:"x-small",float:"left"}} />
+                            <div className="input-group-append">
+                              <button className="btn btn-outline-secondary" 
                                   type="button" onClick={this.add.bind(this, i, item)}
                                   style={{textAlign:"center", height:"22px", textAlign: 'center', fontSize:"5px", float:"left"}}
                                   >+</button>
-                              </div>
                             </div>
-                          </quantity>
+                          </div>
                       </td>
                       <td className="" style={{textAlign: 'right' , verticalAlign: 'middle', fontSize:"small"}}>{item.price*item.ea}원</td>
                     </tr>
