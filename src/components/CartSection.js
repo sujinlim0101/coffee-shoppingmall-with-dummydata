@@ -143,7 +143,7 @@ class CartSection extends React.Component {
           <p style={{textAlign: 'center', color: 'gray'}}>정확한 수량과 금액을 꼭 확인해주세요.</p>
           <table className="table mt-5" style={{borderBottom:"1px solid rgb(228, 225, 225)"}}>
             <thead>
-              <tr className="" style={{borderTop: '2px solid rgb(249, 223, 191)' ,borderBottom: '1px solid #fff8f8' }} >
+              <tr className="" style={{borderTop: '2px solid rgb(247, 212, 169)' ,borderBottom: '1px solid #fff8f8' }} >
                 <td className=""><div style={{fontSize: 'x-small'}}>All</div><input type="checkbox" onChange={this.checkAll.bind(this)}/></td>
                 <td className="">상품이름</td>
                 <td className="" width={120}>수량</td>
