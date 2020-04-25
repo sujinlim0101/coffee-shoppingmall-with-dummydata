@@ -47,6 +47,7 @@ class CartSection extends React.Component {
       method: 'post',
       items: this.state.items
     })
+    console.log(this.state.items)
   }
 
   check(index, e) {
@@ -71,15 +72,15 @@ class CartSection extends React.Component {
     this.updateCart()
   }
 
-  deleteChecked(forEach) {
-    let items = [];
+  deleteChecked() {
+    let list = [];
     this.state.items.forEach(function (item) {
       if (!item.checked) {
-        items.push(item);
+        list.push(item);
       }
     });
     this.setState({
-      items,
+      items:list
     });
     this.updateCart();
   }
