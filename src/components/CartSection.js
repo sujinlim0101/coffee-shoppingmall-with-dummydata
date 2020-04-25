@@ -1,4 +1,5 @@
 import React from 'react';
+import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 
 class CartSection extends React.Component {
   
@@ -138,11 +139,11 @@ class CartSection extends React.Component {
     return(
       <div style={{marginBottom: '200px'}}>
         <div style={{margin: 'auto' ,width: '90%'}}>
-          <h3 className="mt-5" style={{textAlign: 'center'}}>장바구니</h3>
+          <h1 className="mt-5" style={{textAlign: 'center'}}>장바구니</h1>
           <p style={{textAlign: 'center', color: 'gray'}}>정확한 수량과 금액을 꼭 확인해주세요.</p>
           <table className="table mt-5" style={{borderBottom:"1px solid rgb(228, 225, 225)"}}>
             <thead>
-              <tr className="" style={{borderTop: '2px solid rgb(255, 164, 124)' ,borderBottom: '1px solid #fff8f8' }} >
+              <tr className="" style={{borderTop: '2px solid rgb(249, 223, 191)' ,borderBottom: '1px solid #fff8f8' }} >
                 <td className=""><div style={{fontSize: 'x-small'}}>All</div><input type="checkbox" onChange={this.checkAll.bind(this)}/></td>
                 <td className="">상품이름</td>
                 <td className="" width={120}>수량</td>
@@ -154,9 +155,14 @@ class CartSection extends React.Component {
                   return (
                     <tr className="" key={i}>
                       <td style={{itemAlign:"center"}} ><input type="checkbox" checked={item.checked} onChange={this.check.bind(this, i)}/>
-                        <img className="ml-3 img-fluid" src={item.src} width={60} height={80}/></td>
+                        <Link to={`products/${item.productID}`}>
+                          <img className="ml-3 img-fluid" src={item.src} width={60} height={80}/>
+                        </Link>
+                      </td>
                       <td className="">
-                        <p style={{overflow:"visible" ,fontSize:"small" }}>{item.title}</p>
+                        <Link to={`products/${item.productID}`}>
+                          <p className="cartItemTitle" style={{overflow:"visible" ,fontSize:"small"}}>{item.title}</p>
+                        </Link>
                         <p style={{fontSize:"x-small"}}>{item.price}원</p>
                       </td>
                       <td className="" width={120} style={{verticalAlign: 'middle'}}>

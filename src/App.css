@@ -32,3 +32,9 @@ Link.custom-card:hover {
   color: #333;
 }
 
+.cartItemTitle {
+    color: #333;
+    text-decoration: none;
+   
+}
+
