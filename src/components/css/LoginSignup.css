@@ -15,8 +15,15 @@
 .backColor h3 {
   text-align: center;
 }
+.signup{
+  background: #fffdfc;
+
+}
+.signup h3 {
+  text-align: center;
+}
 .signup .signupForm{
-  width: 355px;
+  width: 350px;
   margin: auto;
   background: #ffffff;
   border: 1px solid #ded6d6;
