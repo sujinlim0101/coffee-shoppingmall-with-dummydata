@@ -30,3 +30,13 @@
 .empty{
     height:5px;
 }
+.catetory{
+    font-weight:400;
+    text-align:center; 
+    color:#433f3f;
+}
+.linkLogin{
+    font-size: 0.7em;
+    text-align: center; 
+    float: right
+}

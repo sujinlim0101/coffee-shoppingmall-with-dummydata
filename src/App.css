@@ -19,7 +19,7 @@ Link.custom-card:hover {
 }
 
 .carousel-caption {
-  text-shadow: #1d1616 0 0 3px;
+  text-shadow: #000000 0 0 5px;
   ;
 }
 
@@ -31,4 +31,8 @@ Link.custom-card:hover {
   text-decoration: none;
   color: #333;
 }
-
+.carousel-caption {
+  transform: translateY(-50%);
+  bottom: 0;
+  top: 70%;
+}
