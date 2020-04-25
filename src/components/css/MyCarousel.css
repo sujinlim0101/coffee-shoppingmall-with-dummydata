@@ -1,0 +1,10 @@
+.d-block {
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+}
+.carousel-caption {
+    transform: translateY(-50%);
+    bottom: 0;
+    top: 70%;
+  }
