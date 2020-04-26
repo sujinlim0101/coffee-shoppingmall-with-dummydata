@@ -2,7 +2,6 @@ import React,{useState} from 'react';
 import Popover from 'react-bootstrap/Popover';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
-import Overlay from 'react-bootstrap/Overlay';
 
 class Detail extends React.Component {
   //TODO: uerId 값을 context 또는 서버에서 처리.
@@ -18,16 +17,19 @@ class Detail extends React.Component {
         userId: 1
       },
       isLoggedIn:true,
+      triggerType:"none"
     };
   };
+  
+  
   popover = (
     <Popover id="popover-basic">
       <Popover.Content>
-        <button style={{fontSize:"x-small"}} type="button" id="close" class="close" onClick={this.pophide}>&times;</button>
+        <button style={{fontSize:"x-small"}} type="button" id="close" class="close" onClick={this.pophide}>&times;</button> 
         <p>장바구니에 추가됐습니다. </p>
         <Link to="/cart"><button style={{fontSize:"x-small"}}> 확인하러 가기</button></Link>
       </Popover.Content>
-    </Popover>  
+      </Popover> 
   );
   minus = () => {
     var quantity = this.state.order.quantity;
@@ -93,6 +95,27 @@ class Detail extends React.Component {
       console.log(error);
     })
   }
+  addCart = () => {
+    let addCartSuccess;
+    fetch('/addcart',{
+      product:this.state.product
+    })
+    .then(res => res.json())
+    .then((result) => {
+      this.setState({
+        triggerType:"focus"
+        }
+      )
+    }
+    ,(error) =>{
+      this.setState(
+        {
+          triggerType:"none"
+        }
+      );
+      console.log(error);
+    })
+  }
   render(){ 
     return (
       <div className="container mt-5">
@@ -139,9 +162,9 @@ class Detail extends React.Component {
                 <div className="mt-5">
                   {this.state.isLoggedIn
                     ? 
-                      <OverlayTrigger trigger="focus" placement="top" overlay={this.popover}>
+                      <OverlayTrigger trigger={this.state.triggerType} placement="top" overlay={this.popover}>
                         <button type="button" className="btn btn-outline-success mt-3 mr-1 "
-                          style={{ width: '40%' }}>장바구니</button>
+                          style={{ width: '40%' }} onClick={this.addCart.bind(this)}>장바구니</button>
                       </OverlayTrigger>
                     : <Link to="/login"><button type="button" className="btn btn-outline-success mt-3 mr-1 "
                          style={{ width: '40%' }}>장바구니</button>
