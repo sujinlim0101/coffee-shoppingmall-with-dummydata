@@ -179,7 +179,7 @@ class CartSection extends React.Component {
                             <div className="input-group-append">
                               <button className="btn btn-outline-secondary" 
                                   type="button" onClick={this.add.bind(this, i, item)}
-                                  style={{textAlign:"center", height:"22px", textAlign: 'center', fontSize:"5px", float:"left"}}
+                                  style={{textAlign:"center", height:"22px", fontSize:"5px", float:"left"}}
                                   >+</button>
                             </div>
                           </div>
