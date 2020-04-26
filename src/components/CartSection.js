@@ -93,7 +93,7 @@ class CartSection extends React.Component {
         orderItems.push(item)
       }
     })
-    fetch('http://localhost:8080/orderinfo', {
+    fetch('order.json', {
       method:'get',
       orderItems
     })
