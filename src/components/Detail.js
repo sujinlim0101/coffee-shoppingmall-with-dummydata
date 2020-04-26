@@ -3,6 +3,7 @@ import Popover from 'react-bootstrap/Popover';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 import Overlay from 'react-bootstrap/Overlay';
+
 class Detail extends React.Component {
   //TODO: uerId 값을 context 또는 서버에서 처리.
   constructor(props) {
@@ -16,7 +17,7 @@ class Detail extends React.Component {
         productId: 1,
         userId: 1
       },
-      loggedIn:"false",
+      isLoggedIn:false
     };
   };
 
@@ -119,7 +120,8 @@ class Detail extends React.Component {
                   </tbody>
                 </table>
                 <div className="mt-5">
-                  <OverlayTrigger trigger="click" placement="top" overlay={this.popover}>
+                 
+                  <OverlayTrigger trigger="focus" placement="top" overlay={this.popover}>
                     <button type="button" className="btn btn-outline-success mt-3 mr-1 "
                       style={{ width: '40%' }}>장바구니</button>
                   </OverlayTrigger>
