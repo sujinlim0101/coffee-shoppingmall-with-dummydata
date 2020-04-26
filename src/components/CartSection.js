@@ -173,9 +173,9 @@ class CartSection extends React.Component {
                                 style={{ height:"22px", textAlign: 'center', fontSize:"5px", float:"left"}}
                               >-</button>
                             </div>
-                            <input type="text" className="form-control px-0" placeholder="" aria-label="" 
-                              aria-describedby="basic-addon1" value={item.ea} 
-                              style={{ height:"22px", padding:"5px", textAlign: 'center', fontSize:"x-small",float:"left"}} />
+                            <div className="form-control px-0" 
+                              style={{ height:"22px", padding:"5px", textAlign: 'center', 
+                             fontSize:"x-small",float:"left"}}>{item.ea}</div>
                             <div className="input-group-append">
                               <button className="btn btn-outline-secondary" 
                                   type="button" onClick={this.add.bind(this, i, item)}
