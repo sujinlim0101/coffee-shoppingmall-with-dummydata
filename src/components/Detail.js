@@ -10,17 +10,16 @@ class Detail extends React.Component {
     super(props);
     console.log(props);
     this.state = {
-      isLoading: true,
+      isLoaded: true,
       product: {},
       order: {
         quantity: 1,
         productId: 1,
         userId: 1
       },
-      isLoggedIn:false
+      isLoggedIn:true,
     };
   };
-
   popover = (
     <Popover id="popover-basic">
       <Popover.Content>
@@ -30,7 +29,6 @@ class Detail extends React.Component {
       </Popover.Content>
     </Popover>  
   );
-
   minus = () => {
     var quantity = this.state.order.quantity;
     if (quantity > 1) {
@@ -38,9 +36,7 @@ class Detail extends React.Component {
     } else {
       quantity = 1;
     }
-   
     this.setState({ order: { quantity } });
-
   }
 
   add = () => {
@@ -50,7 +46,6 @@ class Detail extends React.Component {
     } else {
       quantity = 99;
     }
-    
     this.setState({ order: { quantity } });
   }
 
@@ -75,6 +70,28 @@ class Detail extends React.Component {
           console.log(error);
         }
       )
+  }
+
+  order(){
+    const product = this.state.product;
+    fetch('/order.json', {
+      method:'get',
+      product
+    })
+    .then(res => res.json())
+    .then((result) => {
+      this.props.history.push('/order/'+result.sellID);
+    },
+    // Note: it's important to handle errors here
+    // instead of a catch() block so that we don't swallow
+    // exceptions from actual bugs in components.
+    (error) => {
+      this.setState({
+          isLoaded: true,
+          error
+      });
+      console.log(error);
+    })
   }
   render(){ 
     return (
@@ -120,13 +137,23 @@ class Detail extends React.Component {
                   </tbody>
                 </table>
                 <div className="mt-5">
-                 
-                  <OverlayTrigger trigger="focus" placement="top" overlay={this.popover}>
-                    <button type="button" className="btn btn-outline-success mt-3 mr-1 "
-                      style={{ width: '40%' }}>장바구니</button>
-                  </OverlayTrigger>
-                  <button type="button" className="btn btn-success mt-3 ml-2"
-                    style={{ width: '50%' }}>결제</button>
+                  {this.state.isLoggedIn
+                    ? 
+                      <OverlayTrigger trigger="focus" placement="top" overlay={this.popover}>
+                        <button type="button" className="btn btn-outline-success mt-3 mr-1 "
+                          style={{ width: '40%' }}>장바구니</button>
+                      </OverlayTrigger>
+                    : <Link to="/login"><button type="button" className="btn btn-outline-success mt-3 mr-1 "
+                         style={{ width: '40%' }}>장바구니</button>
+                      </Link>}
+                  {this.state.isLoggedIn
+                    ?
+                      <button type="button" className="btn btn-success mt-3 ml-2"
+                        style={{ width: '50%' }} onClick={this.order.bind(this)}>결제</button>
+                    :
+                      <Link to="/login"><button type="button" className="btn btn-success mt-3 ml-2"
+                      style={{ width: '50%' }}>결제</button>
+                      </Link>} 
                 </div>
               </div>
             </div>
