@@ -16,8 +16,7 @@ class Detail extends React.Component {
         productId: 1,
         userId: 1
       },
-      isLoggedIn:true,
-      triggerType:"none"
+      isLoggedIn:false,
     };
   };
   
@@ -103,14 +102,12 @@ class Detail extends React.Component {
     .then(res => res.json())
     .then((result) => {
       this.setState({
-        triggerType:"focus"
         }
       )
     }
     ,(error) =>{
       this.setState(
         {
-          triggerType:"none"
         }
       );
       console.log(error);
@@ -121,7 +118,7 @@ class Detail extends React.Component {
       <div className="container mt-5">
         <div className="row pb-5 " style={{ borderBottom: '1px solid rgb(209, 203, 203)' }}>
           <div className="col-sm-5">
-            <img className="img-fluid" style={{ width: '100%' }} src={this.state.product.mainimg} />
+            <img className="img-fluid mb-2" style={{ width: '100%' }} src={this.state.product.mainimg} />
           </div>
           <div className="col-sm-7">
             <div className="mt-2">
@@ -134,7 +131,7 @@ class Detail extends React.Component {
             </div>
             <div className="row">
               <div className="col-12 mt-3">
-                <table style={{ borderBottom: '1px solid #efecec', width: '101%' }}>
+                <table style={{ borderBottom: '1px solid #efecec', width: '103%' }}>
                   <tbody>
                     <tr style={{ borderBottom: '1px solid #efecec' }}>
                       <td  className="pb-3"style={{ color: 'gray' }} width="30%">원산지</td>
@@ -162,7 +159,7 @@ class Detail extends React.Component {
                 <div className="mt-5">
                   {this.state.isLoggedIn
                     ? 
-                      <OverlayTrigger trigger={this.state.triggerType} placement="top" overlay={this.popover}>
+                      <OverlayTrigger trigger="focus" placement="top" overlay={this.popover}>
                         <button type="button" className="btn btn-outline-success mt-3 mr-1 "
                           style={{ width: '40%' }} onClick={this.addCart.bind(this)}>장바구니</button>
                       </OverlayTrigger>
