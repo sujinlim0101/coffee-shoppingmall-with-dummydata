@@ -4,6 +4,7 @@ import {Navbar, Nav} from "react-bootstrap";
 import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 import Login from "./Login";
 import HomeSection from "./HomeSection";
+import { FiShoppingCart } from 'react-icons/fi';
 
 function IsLogin(props) {
     const isLogin = props.logged;
@@ -44,7 +45,7 @@ class MyNav extends React.Component {
                 resultForm = (
                     <>
                         <Link to="/logout" className={"nav2 nav1 mr-2 mt-2 linkLogin"} onClick={logout}>로그아웃</Link>
-                        <Link to="/cart" className={"nav2 nav1 mr-2 mt-2 linkLogin"}>CART</Link>
+                        <Link to="/cart" className={"nav2 nav1 mr-2 mt-2 linkLogin"}><div className="px-3"><FiShoppingCart style={{fontSize:"2.3em", color:"#504e4e"}}></FiShoppingCart></div></Link>
                     </>
                 );
                 return resultForm;

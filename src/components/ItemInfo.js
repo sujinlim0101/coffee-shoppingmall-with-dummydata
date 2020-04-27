@@ -6,7 +6,7 @@ class ItemInfo extends React.Component {
             <div className="col-6 col-sm-4 col-md-3 mb-4 mt-4" >
                 <div className="card" style={{border: "none"}}>
                         <Link to={`products/${this.props.item.productID}`} state={this.props.item}>
-                        <img src={this.props.item.src} className="card-img-top" alt={this.props.item.title}/>
+                        <img src={this.props.item.mainimg} className="card-img-top" alt={this.props.item.title}/>
                         <div className="card-body">
                             <p className="card-title mb-0">{this.props.item.title}</p>
                             <h6 className="card-text">{this.props.item.price}</h6>
