@@ -48,8 +48,8 @@ export default class Login extends Component {
         // 우선 무조건 성공.
         localStorage.setItem("login_email", loginEmail);
         window.location.href="http://localhost:3000/";
+        this.props.history.push("/");
         window.location.reload();
-        return <Route exact path={"/"} component={HomeSection}></Route>;
     }
 
     render() {

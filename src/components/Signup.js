@@ -2,15 +2,23 @@ import React, {useState} from "react";
 import DaumPostcode from "react-daum-postcode";
 import {Button, Modal} from "react-bootstrap";
 import './css/LoginSignup.css';
+import {useHistory} from "react-router-dom";
+import history from "./helpers/history";
+
 
 function SignUp() {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
     const [address, setAddress] = useState('');
     const [zonecode, setZonecode] = useState('');
 
+    function signup(e) {
+        e.preventDefault();
+        console.log('signup');
+        history.push("/login");
+        window.location.reload();
+    }
 
     // 주소 받기
     const handleComplete = (data) => {
@@ -34,6 +42,8 @@ function SignUp() {
         console.log(address);
         console.log(data.zonecode);
         console.log(fullAddress);
+        this.props.history.push("/login");
+
     }
 
     return (
@@ -57,11 +67,13 @@ function SignUp() {
                 </div>
                 <div className="form-group">
                     <label style={{fontSize: "15px"}}>우편번호</label> <Button onClick={handleShow}>검색</Button>
-                    <input type="text" className="form-control" placeholder="Enter Address" disabled={true} value={zonecode}/>
+                    <input type="text" className="form-control" placeholder="Enter Address" disabled={true}
+                           value={zonecode}/>
                 </div>
                 <div className="form-group">
                     <label style={{fontSize: "15px"}}>주소</label>
-                    <input type="text" className="form-control" placeholder="Enter Address" disabled={true} value={address}/>
+                    <input type="text" className="form-control" placeholder="Enter Address" disabled={true}
+                           value={address}/>
                 </div>
                 <div className="form-group">
                     <label style={{fontSize: "15px"}}>상세주소</label>
@@ -72,7 +84,7 @@ function SignUp() {
                     <input type="text" className="form-control" placeholder="Enter Phone number"/>
                 </div>
 
-                <button type="submit" className="btn-block btn btn-success">가입하기</button>
+                <button type="submit" className="btn-block btn btn-success" onClick={signup}>가입하기</button>
 
                 <Modal show={show} onHide={handleClose}>
                     <Modal.Header closeButton>
