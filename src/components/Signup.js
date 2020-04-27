@@ -56,7 +56,7 @@ function SignUp() {
                     <input type="password" className="form-control" placeholder="비밀번호"/>
                 </div>
                 <div className="form-group" >
-                    <label className=""style={{fontSize: "15px"}}>주소</label> <button className="btn btn-outline-success mx-1 px-3" onClick={handleShow} style={{fontSize:"x-small"}}>검색</button>
+                    <label className=""style={{fontSize: "15px"}}>주소</label> <Button variant="outline-dark" className="btn btn-outline-success mx-1 px-3" onClick={handleShow} style={{fontSize:"x-small"}}>검색</Button>
                     <input type="text mb-1" placeholder="우편번호" className="form-control" disabled={true} value={zonecode}
                         style={{width:"150px"}}/>
                 </div>

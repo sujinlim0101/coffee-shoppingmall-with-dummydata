@@ -16,7 +16,7 @@ class Detail extends React.Component {
         productId: 1,
         userId: 1
       },
-      isLoggedIn:false,
+      isLoggedIn:true,
     };
   };
   
