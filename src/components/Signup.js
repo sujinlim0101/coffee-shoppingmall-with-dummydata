@@ -43,33 +43,32 @@ function SignUp() {
 
                 <div className="form-group">
                     <label style={{fontSize: "15px"}}>이름</label>
-                    <input type="text" className="form-control" placeholder="name"/>
+                    <input type="text" className="form-control" placeholder="이름"/>
                 </div>
 
                 <div className="form-group">
                     <label style={{fontSize: "15px"}}>이메일</label>
-                    <input type="email" className="form-control" placeholder="Enter email"/>
+                    <input type="email" className="form-control" placeholder="이메일"/>
                 </div>
 
                 <div className="form-group">
                     <label style={{fontSize: "15px"}}>비밀번호</label>
-                    <input type="password" className="form-control" placeholder="Enter password"/>
+                    <input type="password" className="form-control" placeholder="비밀번호"/>
+                </div>
+                <div className="form-group" >
+                    <label className=""style={{fontSize: "15px"}}>주소</label> <button className="btn btn-outline-success mx-1 px-3" onClick={handleShow} style={{fontSize:"x-small"}}>검색</button>
+                    <input type="text mb-1" placeholder="우편번호" className="form-control" disabled={true} value={zonecode}
+                        style={{width:"150px"}}/>
+                </div>
+                <div className="form-group" >
+                    <input type="text" className="form-control" placeholder="주소" disabled={true} value={address}/>
                 </div>
                 <div className="form-group">
-                    <label style={{fontSize: "15px"}}>우편번호</label> <Button onClick={handleShow}>검색</Button>
-                    <input type="text" className="form-control" placeholder="Enter Address" disabled={true} value={zonecode}/>
+                    <input type="text" className="form-control" placeholder="상세주소"/>
                 </div>
                 <div className="form-group">
-                    <label style={{fontSize: "15px"}}>주소</label>
-                    <input type="text" className="form-control" placeholder="Enter Address" disabled={true} value={address}/>
-                </div>
-                <div className="form-group">
-                    <label style={{fontSize: "15px"}}>상세주소</label>
-                    <input type="text" className="form-control" placeholder="Enter Address"/>
-                </div>
-                <div className="form-group">
-                    <label style={{fontSize: "15px"}}>전화번호</label>
-                    <input type="text" className="form-control" placeholder="Enter Phone number"/>
+                    <label style={{fontSize: "15px"}}>핸드폰</label>
+                    <input type="text" className="form-control" placeholder="핸드폰 번호"/>
                 </div>
 
                 <button type="submit" className="btn-block btn btn-success">가입하기</button>
