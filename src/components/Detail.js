@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import Popover from 'react-bootstrap/Popover';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import Toast from 'react-bootstrap/Toast'
 
 class Detail extends React.Component {
   //TODO: uerId 값을 context 또는 서버에서 처리.
@@ -17,6 +18,8 @@ class Detail extends React.Component {
         userId: 1
       },
       isLoggedIn:true,
+      show:false,
+      message:""
     };
   };
   
@@ -96,21 +99,30 @@ class Detail extends React.Component {
   }
   addCart = () => {
     let addCartSuccess;
+    
     fetch('/addcart',{
       product:this.state.product
     })
     .then(res => res.json())
     .then((result) => {
       this.setState({
+        show:true,
+        message:"장바구니에 추가되었습니다. "
         }
       )
     }
     ,(error) =>{
-      this.setState(
-        {
+      this.setState({
+        show:true,
+        message:"추가 실패. 잠시후 다시 시도해주세요. "
         }
-      );
+      )
       console.log(error);
+    })
+  }
+  closeShow() {
+    this.setState({
+      show: false
     })
   }
   render(){ 
@@ -156,13 +168,25 @@ class Detail extends React.Component {
                     </tr>
                   </tbody>
                 </table>
-                <div className="mt-5">
+                <div className="">
                   {this.state.isLoggedIn
                     ? 
-                      <OverlayTrigger trigger="focus" placement="top" overlay={this.popover}>
-                        <button type="button" className="btn btn-outline-success mt-3 mr-1 "
-                          style={{ width: '40%' }} onClick={this.addCart.bind(this)}>장바구니</button>
-                      </OverlayTrigger>
+                        <>
+                          <Toast onClose={this.closeShow.bind(this)} show={this.state.show} delay={3000} autohide>
+                            <Toast.Header>
+                              <img
+                                src="holder.js/20x20?text=%20"
+                                className="rounded mr-2"
+                                alt=""
+                              />
+                              <strong className="mr-auto">알림</strong>
+                            </Toast.Header>
+                            <Toast.Body>{this.state.message}</Toast.Body>
+                          </Toast>
+                          <button type="button" className="btn btn-outline-success mt-3 mr-1 "
+                         style={{ width: '40%' }} onClick={this.addCart.bind(this)}>장바구니</button>       
+                        </>
+                  
                     : <Link to="/login"><button type="button" className="btn btn-outline-success mt-3 mr-1 "
                          style={{ width: '40%' }}>장바구니</button>
                       </Link>}
