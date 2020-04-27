@@ -1,42 +1,56 @@
-import React , { useState, useEffect } from 'react';
- class Detail extends React.Component {
+import React,{useState} from 'react';
+import Popover from 'react-bootstrap/Popover';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+
+class Detail extends React.Component {
   //TODO: uerId 값을 context 또는 서버에서 처리.
   constructor(props) {
     super(props);
     console.log(props);
     this.state = {
-      isLoading: true,
+      isLoaded: true,
       product: {},
       order: {
         quantity: 1,
         productId: 1,
         userId: 1
-      }
+      },
+      isLoggedIn:true,
+      triggerType:"none"
     };
   };
- 
+  
+  
+  popover = (
+    <Popover id="popover-basic">
+      <Popover.Content>
+        <button style={{fontSize:"x-small"}} type="button" id="close" class="close" onClick={this.pophide}>&times;</button> 
+        <p>장바구니에 추가됐습니다. </p>
+        <Link to="/cart"><button style={{fontSize:"x-small"}}> 확인하러 가기</button></Link>
+      </Popover.Content>
+      </Popover> 
+  );
   minus = () => {
     var quantity = this.state.order.quantity;
-    if(quantity > 1){
+    if (quantity > 1) {
       quantity--
-    }else{
+    } else {
       quantity = 1;
     }
-   
     this.setState({ order: { quantity } });
-
   }
 
   add = () => {
     var quantity = this.state.order.quantity;
-    if(quantity < 99){
+    if (quantity < 99) {
       quantity++;
-    }else{
+    } else {
       quantity = 99;
     }
-    
     this.setState({ order: { quantity } });
   }
+
   componentDidMount() {
     const productId = this.props.match.params.productID;
     fetch('/detail-' + productId + '.json')
@@ -59,6 +73,49 @@ import React , { useState, useEffect } from 'react';
         }
       )
   }
+
+  order(){
+    const product = this.state.product;
+    fetch('/order.json', {
+      method:'get',
+      product
+    })
+    .then(res => res.json())
+    .then((result) => {
+      this.props.history.push('/order/'+result.sellID);
+    },
+    // Note: it's important to handle errors here
+    // instead of a catch() block so that we don't swallow
+    // exceptions from actual bugs in components.
+    (error) => {
+      this.setState({
+          isLoaded: true,
+          error
+      });
+      console.log(error);
+    })
+  }
+  addCart = () => {
+    let addCartSuccess;
+    fetch('/addcart',{
+      product:this.state.product
+    })
+    .then(res => res.json())
+    .then((result) => {
+      this.setState({
+        triggerType:"focus"
+        }
+      )
+    }
+    ,(error) =>{
+      this.setState(
+        {
+          triggerType:"none"
+        }
+      );
+      console.log(error);
+    })
+  }
   render(){ 
     return (
       <div className="container mt-5">
@@ -76,35 +133,50 @@ import React , { useState, useEffect } from 'react';
               <p style={{ fontSize: '2rem' }}>{this.state.product.price}</p>
             </div>
             <div className="row">
-              <div class="col-12 mt-3">
-                <table style={{ borderBottom: '1px solid #efecec', width: '100%' }} cellpadding="10">
-                  <tr style={{ borderBottom: '1px solid #efecec' }}>
-                    <td style={{ color: 'gray' }} width="30%">원산지</td>
-                    <td>{this.state.product.origin}</td>
-                  </tr>
-                  <tr>
-                    <td style={{ color: 'gray' }}>수량</td>
-                    <td style={{ alignItems: 'center' }}>
-                      <form className="row">
-                        <div className="input-group col-6 col-sm-8 col-md-6 col-lg-4">
-                          <div className="input-group-prepend">
-                            <button className="btn btn-outline-secondary" type="button" onClick={this.minus}
-                            >-</button>
+              <div className="col-12 mt-3">
+                <table style={{ borderBottom: '1px solid #efecec', width: '101%' }}>
+                  <tbody>
+                    <tr style={{ borderBottom: '1px solid #efecec' }}>
+                      <td  className="pb-3"style={{ color: 'gray' }} width="30%">원산지</td>
+                      <td>{this.state.product.origin}</td>
+                    </tr>
+                    <tr >
+                      <td style={{ color: 'gray' }}>수량</td>
+                      <td style={{ alignItems: 'center' }}>
+                        <form className="row mt-2 mb-2">
+                          <div className="input-group col-6 col-sm-8 col-md-6 col-lg-4">
+                            <div className="input-group-prepend">
+                              <button className="btn btn-outline-secondary" type="button" onClick={this.minus}
+                              >-</button>
+                            </div>
+                            <div className="pt-2" style={{ textAlign: 'center', text:"x-small" ,width:"37px",border:"1px gray solid"}}>{this.state.order.quantity}</div>
+                            <div className="input-group-append">
+                              <button className="btn btn-outline-secondary" type="button" onClick={this.add}>+</button>
+                            </div>
                           </div>
-                          <input type="text" className="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" value={this.state.order.quantity} style={{ textAlign: 'center', text:"x-small"}} />
-                          <div className="input-group-append">
-                            <button className="btn btn-outline-secondary" type="button" onClick={this.add}>+</button>
-                          </div>
-                        </div>
-                      </form>
-                    </td>
-                  </tr>
+                        </form>
+                      </td>
+                    </tr>
+                  </tbody>
                 </table>
                 <div className="mt-5">
-                  <button type="button" class="btn btn-outline-success mt-3 mr-1 "
-                    style={{ width: '40%' }}>장바구니</button>
-                  <button type="button" class="btn btn-success mt-3 ml-2"
-                    style={{ width: '50%' }}>결제</button>
+                  {this.state.isLoggedIn
+                    ? 
+                      <OverlayTrigger trigger={this.state.triggerType} placement="top" overlay={this.popover}>
+                        <button type="button" className="btn btn-outline-success mt-3 mr-1 "
+                          style={{ width: '40%' }} onClick={this.addCart.bind(this)}>장바구니</button>
+                      </OverlayTrigger>
+                    : <Link to="/login"><button type="button" className="btn btn-outline-success mt-3 mr-1 "
+                         style={{ width: '40%' }}>장바구니</button>
+                      </Link>}
+                  {this.state.isLoggedIn
+                    ?
+                      <button type="button" className="btn btn-success mt-3 ml-2"
+                        style={{ width: '50%' }} onClick={this.order.bind(this)}>결제</button>
+                    :
+                      <Link to="/login"><button type="button" className="btn btn-success mt-3 ml-2"
+                      style={{ width: '50%' }}>결제</button>
+                      </Link>} 
                 </div>
               </div>
             </div>

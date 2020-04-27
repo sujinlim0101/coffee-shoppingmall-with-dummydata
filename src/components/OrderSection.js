@@ -16,7 +16,7 @@ class OrderSection extends React.Component{
     render(){
         return(
             <div className="container" style={{height:"600px", textAlign:"center", margin: "auto" }}>
-                <div className=" pb-2" style={{borderBottom:"1px orange solid", marginTop:"100px"}}>
+                <div className=" pb-2" style={{borderBottom:"1px solid rgb(247, 212, 169)", marginTop:"100px"}}>
                     <h5 className="pb-2">짝짝! 주문이 완료됐습니다.</h5>
                     <p>맛있고 신선한 원두만을 보내드릴게요.</p>
                 </div>

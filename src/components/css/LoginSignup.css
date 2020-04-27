@@ -7,7 +7,7 @@
   margin: auto;
   background: #ffffff;
   border: 1px solid #ded6d6;
-  padding: 40px 55px 45px 55px;
+  padding: 35px 40px 40px 40px;
   border-radius: 15px;
   transition: all .3s;
 }
@@ -15,8 +15,15 @@
 .backColor h3 {
   text-align: center;
 }
+.signup{
+  background: #fffdfc;
+
+}
+.signup h3 {
+  text-align: center;
+}
 .signup .signupForm{
-  width: 355px;
+  width: 350px;
   margin: auto;
   background: #ffffff;
   border: 1px solid #ded6d6;
