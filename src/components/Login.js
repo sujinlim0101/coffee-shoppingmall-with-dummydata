@@ -1,16 +1,14 @@
 import React, {Component} from "react";
 import './css/LoginSignup.css';
 import {Link, Route} from "react-router-dom";
-import axios from 'axios';
-import jQuery from "jquery";
 import HomeSection from "./HomeSection";
 
-window.$ = window.jQuery = jQuery;
+/*window.$ = window.jQuery = jQuery;
 axios.defaults.withCredentials = true;
 const headers = {withCredentials: true};
-
+*/
 export default class Login extends Component {
-    login = () => {
+    /*login = () => {
         const loginEmail = this.loginEmail.value;
         const loginPassword = this.loginPassword.value;
 
@@ -46,15 +44,17 @@ export default class Login extends Component {
             });            
          */
         // 우선 무조건 성공.
-        localStorage.setItem("login_email", loginEmail);
+        /* localStorage.setItem("login_email", loginEmail);
         window.location.href="http://localhost:3000/";
         window.location.reload();
         return <Route exact path={"/"} component={HomeSection}></Route>;
-    }
+    } */ 
 
     render() {
         return (
-            <div className="pb-5 backColor" style={{height: "800px"}}>
+            <div></div>
+
+            /*<div className="pb-5 backColor" style={{height: "800px"}}>
                 <div style={{height: "70px"}}></div>
                 <form className="formInner container pt-5 pb-5">
 
@@ -84,7 +84,7 @@ export default class Login extends Component {
                     </p>
 
                 </form>
-            </div>
+            </div> */
         );
     }
 }
