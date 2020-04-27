@@ -118,7 +118,7 @@ class Detail extends React.Component {
       <div className="container mt-5">
         <div className="row pb-5 " style={{ borderBottom: '1px solid rgb(209, 203, 203)' }}>
           <div className="col-sm-5">
-            <img className="img-fluid" style={{ width: '100%' }} src={this.state.product.mainimg} />
+            <img className="img-fluid mb-2" style={{ width: '100%' }} src={this.state.product.mainimg} />
           </div>
           <div className="col-sm-7">
             <div className="mt-2">
@@ -131,7 +131,7 @@ class Detail extends React.Component {
             </div>
             <div className="row">
               <div className="col-12 mt-3">
-                <table style={{ borderBottom: '1px solid #efecec', width: '101%' }}>
+                <table style={{ borderBottom: '1px solid #efecec', width: '103%' }}>
                   <tbody>
                     <tr style={{ borderBottom: '1px solid #efecec' }}>
                       <td  className="pb-3"style={{ color: 'gray' }} width="30%">원산지</td>
