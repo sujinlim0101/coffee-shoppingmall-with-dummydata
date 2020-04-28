@@ -93,13 +93,13 @@ class CartSection extends React.Component {
                 orderItems.push(item)
             }
         })
-        fetch('order.json', {
+        fetch('http://localhost:8080/SpringBootRestAPIDemo/order', {
             method: 'get',
             orderItems
         })
             .then(res => res.json())
             .then((result) => {
-                    this.props.history.push('/order/' + result.sellID);
+                    this.props.history.push('/order/'+result.sellID);
                 },
                 // Note: it's important to handle errors here
                 // instead of a catch() block so that we don't swallow

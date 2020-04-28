@@ -43,7 +43,7 @@ function SignUp() {
         console.log(address);
         console.log(data.zonecode);
         console.log(fullAddress);
-        this.props.history.push("/login");
+        history.push("/login");
 
     }
 

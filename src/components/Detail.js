@@ -17,7 +17,7 @@ class Detail extends React.Component {
         productId: 1,
         userId: 1
       },
-      isLoggedIn:true,
+      isLoggedIn:false,
       show:false,
       message:""
     };
@@ -54,6 +54,18 @@ class Detail extends React.Component {
   }
 
   componentDidMount() {
+    
+      let token = localStorage.getItem('login_email');
+      if(token){
+        this.setState({
+          isLoggedIn:true
+        })
+      }else{
+        this.setState({
+          isLoggedIn:false
+        })
+      }
+  
     const productId = this.props.match.params.productID;
     fetch('/detail-' + productId + '.json')
       .then(res => res.json())
@@ -125,6 +137,7 @@ class Detail extends React.Component {
       show: false
     })
   }
+
   render(){ 
     return (
       <div className="container mt-5">
