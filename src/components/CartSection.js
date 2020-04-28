@@ -8,10 +8,17 @@ class CartSection extends React.Component {
         this.state = {
             isloaded: true,
             items: [],
+            userid:""
         }
     }
 
     componentDidMount() {
+        let userid =  localStorage.getItem('login_email');
+        if(userid){
+            this.setState({
+                userid:userid
+            })
+        }
         fetch("cart.json")
             .then(res => res.json())
             .then((result) => {
@@ -44,11 +51,10 @@ class CartSection extends React.Component {
         this.setState({
             tot: total,
         })
-        fetch('/cartupdate', {
+        fetch('/cartupdate/'+this.state.userid, {
             method: 'post',
             items: this.state.items
         })
-        console.log(this.state.items)
     }
 
     check(index, e) {
@@ -93,9 +99,14 @@ class CartSection extends React.Component {
                 orderItems.push(item)
             }
         })
-        fetch('http://localhost:8080/SpringBootRestAPIDemo/order', {
-            method: 'get',
-            orderItems
+
+        fetch('http://localhost:8080/SpringBootRestAPIDemo/order/'+this.state.userid, {
+            method: 'POST', 
+            headers: {
+              'Access-Control-Allow-Credentials': true,
+              'Access-Control-Allow-Origin': 'http://localhost:8000/', 
+            },
+           orderItems
         })
             .then(res => res.json())
             .then((result) => {
