@@ -55,6 +55,7 @@ class CartSection extends React.Component {
             method: 'post',
             items: this.state.items
         })
+        console.log(this.state.items)
     }
 
     check(index, e) {
@@ -100,13 +101,16 @@ class CartSection extends React.Component {
             }
         })
 
-        fetch('http://localhost:8080/SpringBootRestAPIDemo/order/'+this.state.userid, {
+        fetch('http://211.63.89.154:8080/SpringBootRestAPIDemo/order/'+this.state.userid, {
             method: 'POST', 
             headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
               'Access-Control-Allow-Credentials': true,
               'Access-Control-Allow-Origin': 'http://localhost:8000/', 
+
             },
-           orderItems
+            body: JSON.stringify(orderItems)
         })
             .then(res => res.json())
             .then((result) => {
