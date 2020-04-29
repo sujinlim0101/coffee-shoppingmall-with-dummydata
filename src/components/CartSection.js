@@ -107,7 +107,7 @@ class CartSection extends React.Component {
               'Accept': 'application/json',
               'Content-Type': 'application/json',
               'Access-Control-Allow-Credentials': true,
-              'Access-Control-Allow-Origin': 'http://localhost:8000/', 
+              'Access-Control-Allow-Origin': 'http://211.63.89.154:8000/', 
 
             },
             body: JSON.stringify(orderItems)
