@@ -139,6 +139,7 @@ class Detail extends React.Component {
   }
 
   render(){ 
+    window.scrollTo(0, 0);
     return (
       <div className="container mt-5">
         <div className="row pb-5 " style={{ borderBottom: '1px solid rgb(209, 203, 203)' }}>

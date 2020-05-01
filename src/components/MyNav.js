@@ -6,38 +6,13 @@ import Login from "./Login";
 import HomeSection from "./HomeSection";
 import { FiShoppingCart } from 'react-icons/fi';
 
-function IsLogin(props) {
-    const isLogin = props.logged;
-    if (!isLogin) {
-        return (
-            <div>
-                <Nav.Link href="/login">로그인</Nav.Link>
-                <Nav.Link href="/signup"
-                      style={{
-                          fontSize: "0.7em",
-                          textAlign: "center",
-                          float: "right"
-                      }}>회원가입</Nav.Link>
-            </div>
-        );
-    } else {
-        return (
-            <div>
-                <Nav.Link href="/logout">로그아웃</Nav.Link>
-                <Nav.Link href="/cart">CART</Nav.Link>
-            </div>
-        );
-    }
-}
-
 
 class MyNav extends React.Component {
     constructor(props) {
         super(props);
         const { location } = props;
-        this.activeKey = 0;
         this.state = {
-          categoryColor:["none","none","none","none"]
+          
         };
       };
       
@@ -73,11 +48,8 @@ class MyNav extends React.Component {
         }
         getResultForm();
 
-        const isLogin = localStorage.getItem("login_id");
 
         return (
-
-            
             <Navbar collapseOnSelect expand="lg" bg="white" variant="light"
                 className={"navbar container-fluid sticky-top"}
                 style={{
@@ -102,9 +74,6 @@ class MyNav extends React.Component {
                 </Navbar.Collapse>
                 </div>
             </Navbar>
-           
-          
-
         );
     }
 }
