@@ -37,4 +37,10 @@ Link.custom-card:hover {
     text-decoration: none;
    
 }
+.category {
+  color: rgb(72, 71, 71);
+}
+.category:hover, .category.active {
+  background: #fbd5c5;
+}
 
