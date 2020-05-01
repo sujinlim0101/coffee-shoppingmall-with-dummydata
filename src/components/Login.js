@@ -56,19 +56,19 @@ export default class Login extends Component {
         return (
             <div className="pb-5 backColor" style={{height: "800px"}}>
                 <div style={{height: "70px"}}></div>
-                <form className="formInner container pt-5 pb-5">
+                <form className="formInner container pt-5 pb-5" action="/login" method="POST">
 
                     <h3 className="mb-4">로그인</h3>
 
                     <div className="form-group ">
                         <label>이메일</label>
-                        <input type="email" className="form-control" placeholder="Enter email"
+                        <input name="email" type="email" className="form-control" placeholder="Enter email"
                                ref={ref => this.loginEmail = ref}/>
                     </div>
 
                     <div className="form-group">
                         <label>비밀번호</label>
-                        <input type="password" className="form-control" placeholder="Enter password"
+                        <input name="passwd" type="password" className="form-control" placeholder="Enter password"
                                ref={ref => this.loginPassword = ref}/>
                     </div>
 

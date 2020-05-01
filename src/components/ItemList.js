@@ -10,8 +10,6 @@ class ItemList extends React.Component {
             title: null
         };
         
-        if ('title'  in props) this.state.title = props.title;
-        console.log(this.state.title);
         switch (props.item) {
             case 'featuredBeans':
                 this.state.url = '/featuredBeans.json';

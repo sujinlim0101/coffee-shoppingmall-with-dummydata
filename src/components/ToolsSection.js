@@ -9,7 +9,7 @@ class ToolsSection extends React.Component{
                     <h3 className="pb-3 px-5 mb-4 pb-3" 
                     style={{textAlign:"center", borderBottom:"#d4d1d1 solid 1px" ,position:"relative", lineHeight:"1.2"}}>
                     <img src={require('./../images/dripperIcon.png')} width={50} height={50}></img> Tools
-                </h3>
+                    </h3>
                 </div>
                 <ItemList item={"tools"} title={"TOOLS"}></ItemList>
             </div>

@@ -76,6 +76,7 @@ class MyNav extends React.Component {
         const isLogin = localStorage.getItem("login_id");
 
         return (
+
             
             <Navbar collapseOnSelect expand="lg" bg="white" variant="light"
                 className={"navbar container-fluid sticky-top"}
@@ -103,6 +104,7 @@ class MyNav extends React.Component {
             </Navbar>
            
           
+
         );
     }
 }

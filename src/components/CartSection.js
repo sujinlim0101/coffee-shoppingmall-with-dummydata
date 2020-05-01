@@ -8,10 +8,17 @@ class CartSection extends React.Component {
         this.state = {
             isloaded: true,
             items: [],
+            userid:""
         }
     }
 
     componentDidMount() {
+        let userid =  localStorage.getItem('login_email');
+        if(userid){
+            this.setState({
+                userid:userid
+            })
+        }
         fetch("cart.json")
             .then(res => res.json())
             .then((result) => {
@@ -44,7 +51,7 @@ class CartSection extends React.Component {
         this.setState({
             tot: total,
         })
-        fetch('/cartupdate', {
+        fetch('/cartupdate/'+this.state.userid, {
             method: 'post',
             items: this.state.items
         })
@@ -93,13 +100,21 @@ class CartSection extends React.Component {
                 orderItems.push(item)
             }
         })
-        fetch('order.json', {
-            method: 'get',
-            orderItems
+
+        fetch('http://211.63.89.154:8080/SpringBootRestAPIDemo/order/'+this.state.userid, {
+            method: 'POST', 
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Credentials': true,
+              'Access-Control-Allow-Origin': 'http://211.63.89.154:8000/', 
+
+            },
+            body: JSON.stringify(orderItems)
         })
             .then(res => res.json())
             .then((result) => {
-                    this.props.history.push('/order/' + result.sellID);
+                    this.props.history.push('/order/'+result.sellID);
                 },
                 // Note: it's important to handle errors here
                 // instead of a catch() block so that we don't swallow

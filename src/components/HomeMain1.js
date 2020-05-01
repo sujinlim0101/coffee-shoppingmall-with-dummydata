@@ -5,7 +5,9 @@ import Mycarousel from './Mycarousel';
 class HomeMain1 extends React.Component{
     render(){
         return (
-            <Mycarousel></Mycarousel>
+            <div>
+                <Mycarousel></Mycarousel>
+            </div>
         );
     }
 }
