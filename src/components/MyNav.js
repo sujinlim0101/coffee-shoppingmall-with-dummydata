@@ -2,8 +2,6 @@ import React from "react";
 import "./css/MyNav.css";
 import {Navbar, Nav} from "react-bootstrap";
 import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
-import Login from "./Login";
-import HomeSection from "./HomeSection";
 import { FiShoppingCart } from 'react-icons/fi';
 
 

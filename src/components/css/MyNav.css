@@ -1,42 +1,9 @@
-.navbar-center{
-    font-size: 1.8em;
-    width:40%;
-    margin-left: 20%;
-}
-.totalNav{
-    height: 90px;
-    border-bottom: solid 1px #aaaaaa;
+.navbar-light .navbar-nav .nav-link {
+     color: rgb(95, 95, 95)
 }
 
-.signinup{
-    position: fixed;
-    right: 20px;
+.category:hover, .category.active {
+    background: #fbd5c5;
 }
-.signin, .signup{
-    font-size: 1.5em;
-}
-.nav1{
-/*    padding-right: 10px;*/
-/*    border-right: 1px solid;*/
-/*    margin-right: 10px ;*/
-}
-.nav2, .nav2:hover{
-    color:black;
-    text-decoration: none;
-}
-.nav3{
-    margin-left: 10px;
-}
-.empty{
-    height:5px;
-}
-.catetory{
-    font-weight:400;
-    text-align:center; 
-    color:#433f3f;
-}
-.linkLogin{
-    font-size: 0.7em;
-    text-align: center; 
-    float: right
-}
+  
+  
