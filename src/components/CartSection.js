@@ -101,13 +101,13 @@ class CartSection extends React.Component {
             }
         })
 
-        fetch('http://211.63.89.154:8080/SpringBootRestAPIDemo/order/'+this.state.userid, {
+        fetch('http://localhost:8080//order/'+this.state.userid, {
             method: 'POST', 
             headers: {
               'Accept': 'application/json',
               'Content-Type': 'application/json',
               'Access-Control-Allow-Credentials': true,
-              'Access-Control-Allow-Origin': 'http://211.63.89.154:8000/', 
+              'Access-Control-Allow-Origin': 'http://localhost:8000/', 
 
             },
             body: JSON.stringify(orderItems)
@@ -175,7 +175,7 @@ class CartSection extends React.Component {
                                     <td style={{itemAlign: "center"}}><input type="checkbox" checked={item.checked}
                                                                              onChange={this.check.bind(this, i)}/>
                                         <Link to={`products/${item.productID}`}>
-                                            <img className="ml-3 img-fluid" src={item.src} width={60} height={80}/>
+                                            <img className="ml-3 img-fluid" src={item.mainimg} width={60} height={80}/>
                                         </Link>
                                     </td>
                                     <td className="">

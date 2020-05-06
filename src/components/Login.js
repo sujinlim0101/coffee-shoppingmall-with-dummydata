@@ -56,7 +56,7 @@ export default class Login extends Component {
         return (
             <div className="pb-5 backColor" style={{height: "800px"}}>
                 <div style={{height: "70px"}}></div>
-                <form className="formInner container pt-5 pb-5" action="/login" method="POST">
+                <form className="formInner container pt-5 pb-5" action="http:localhost:8080/SpringBootMybatisDemo/login" method="POST">
 
                     <h3 className="mb-4">로그인</h3>
 
