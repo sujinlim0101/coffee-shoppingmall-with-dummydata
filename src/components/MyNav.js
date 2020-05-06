@@ -2,37 +2,18 @@ import React from "react";
 import "./css/MyNav.css";
 import {Navbar, Nav} from "react-bootstrap";
 import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
-import Login from "./Login";
-import HomeSection from "./HomeSection";
 import { FiShoppingCart } from 'react-icons/fi';
 
-function IsLogin(props) {
-    const isLogin = props.logged;
-    if (!isLogin) {
-        return (
-            <div>
-                <Link to="/login" className={"nav2 nav1 mr-2 mt-2 linkLogin"}>로그인</Link>
-                <Link to="/signup" className={"nav2 nav1 mr-2 mt-2 linkLogin"}
-                      style={{
-                          fontSize: "0.7em",
-                          textAlign: "center",
-                          float: "right"
-                      }}>회원가입</Link>
-            </div>
-        );
-    } else {
-        return (
-            <div>
-                <Link to="/logout" className={"nav2 nav1 mr-2 mt-2 linkLogin"}>로그아웃</Link>
-                <Link to="/cart" className={"nav2 nav1 mr-2 mt-2 linkLogin"}>CART</Link>
-            </div>
-        );
-    }
-}
 
 class MyNav extends React.Component {
-
-
+    constructor(props) {
+        super(props);
+        const { location } = props;
+        this.state = {
+          
+        };
+      };
+      
     render() {
         let resultForm;
         const logout = () => {
@@ -40,25 +21,24 @@ class MyNav extends React.Component {
             window.location.reload();
         };
 
+        const handleSelect = (selectedKey) => {
+            this.setState({activeKey: selectedKey});
+        };
+
         function getResultForm() {
             if (localStorage.getItem("login_email")) {
                 resultForm = (
                     <>
-                        <Link to="/logout" className={"nav2 nav1 mr-2 mt-2 linkLogin"} onClick={logout}>로그아웃</Link>
-                        <Link to="/cart" className={"nav2 nav1 mr-2 mt-2 linkLogin"}><div className="px-3"><FiShoppingCart style={{fontSize:"2.3em", color:"#504e4e"}}></FiShoppingCart></div></Link>
+                        <Nav.Link href="/cart" className="mx-2"><FiShoppingCart style={{fontSize:"1.7em", color:"#504e4e"}}></FiShoppingCart></Nav.Link>
+                        <div><Nav.Link href="/logout" className="mx-2" style={{fontSize:"12px", color:"rgb(72, 71, 71)",padding:"13px"}} onClick={logout} >로그아웃</Nav.Link></div>
                     </>
                 );
                 return resultForm;
             } else {
                 resultForm = (
                     <>
-                        <Link to="/login" className={"nav2 nav1 mr-2 mt-2 linkLogin"}>로그인</Link>
-                        <Link to="/signup" className={"nav2 nav1 mr-2 mt-2 linkLogin"}
-                              style={{
-                                  fontSize: "0.7em",
-                                  textAlign: "center",
-                                  float: "right"
-                              }}>회원가입</Link>
+                        <Nav.Link className="mx-2" href="/login" style={{fontSize:"12px", color:"rgb(72, 71, 71)",padding:"13px"}}>로그인</Nav.Link>
+                        <Nav.Link href="/signup" style={{fontSize:"12px", color:"rgb(72, 71, 71)",padding:"13px"}}>회원가입</Nav.Link>
                     </>
                 )
                 return resultForm;
@@ -66,35 +46,32 @@ class MyNav extends React.Component {
         }
         getResultForm();
 
-        const isLogin = localStorage.getItem("login_id");
 
         return (
-            <div>
-                <Navbar collapseOnSelect expand="lg" bg="white" variant="light"
-                        className={"navbar container-fluid sticky-top"}
-                        style={{
-                            textAlign: "center",
-                            boxShadow: "rgb(246, 204, 152) 0px 2px 3px"
-                        }} width={150}>
-                    <div className={"container"}>
-                        <Link to="/" className={"logo mr-5"}>
-                            <img src={require('./../images/daylogo.png')} alt="Logo"
-                                width={140} height={50}/>
-                        </Link>
-                        <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
-                        <Navbar.Collapse id="responsive-navbar-nav">
-                            <Nav className="">
-                                <Link to="/beans" className={"nav2 nav1 mx-5 category"}>BEANS</Link>
-                                <Link to="/tools" className={"nav2 nav1 mx-5 category"}>TOOLS</Link>
-                                <Link to="/about" className={"nav2 nav1 mx-5 category"}>ABOUT US</Link>
-                                <Link to="/contact" className={"nav2 nav1 mx-5 category"}>CONTACT US</Link>
-                                {/*<IsLogin logged={isLogin}/>*/}
-                                {resultForm}
-                            </Nav>
-                        </Navbar.Collapse>
-                    </div>
-                </Navbar>
-            </div>
+            <Navbar collapseOnSelect expand="lg" bg="white" variant="light"
+                className={"navbar container-fluid sticky-top"}
+                style={{
+                    textAlign: "center",
+                    boxShadow: "rgb(246, 204, 152) 0px 2px 3px"
+                }} width={150}>
+                <div className="container">
+                <Navbar.Brand href="/" className="mx-5"><img src={require('./../images/daylogo.png')} alt="Logo"
+                             width={140} height={50}/>
+                </Navbar.Brand>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav">
+                    <Nav className="mr-auto" activeKey={this.state.activeKey} onSelect={this.handleSelect}>
+                        <Nav.Link eventKey={1} as={Link} to="/beans" className="mx-4 category">BEANS</Nav.Link>
+                        <Nav.Link eventKey={2} as={Link} to="/tools" className="mx-4 category"> TOOLS</Nav.Link>
+                        <Nav.Link eventKey={3} as={Link} to="/about" className="mx-4 category">ABOUT US</Nav.Link>
+                        <Nav.Link eventKey={4} as={Link} to="/contact" className="mx-4 category">CONTACT US</Nav.Link>
+                    </Nav>
+                    <Nav>
+                        {resultForm}
+                    </Nav>
+                </Navbar.Collapse>
+                </div>
+            </Navbar>
         );
     }
 }

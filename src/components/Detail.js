@@ -8,7 +8,6 @@ class Detail extends React.Component {
   //TODO: uerId 값을 context 또는 서버에서 처리.
   constructor(props) {
     super(props);
-    console.log(props);
     this.state = {
       isLoaded: true,
       product: {},
@@ -54,7 +53,7 @@ class Detail extends React.Component {
   }
 
   componentDidMount() {
-    
+      window.scrollTo(0, 0);
       let token = localStorage.getItem('login_email');
       if(token){
         this.setState({
@@ -67,6 +66,7 @@ class Detail extends React.Component {
       }
   
     const productId = this.props.match.params.productID;
+    //fetch("http://211.63.89.154:8080/SpringBootRestAPIDemo/detail-"+productId)
     fetch('/detail-' + productId + '.json')
       .then(res => res.json())
       .then((result) => {
@@ -90,6 +90,7 @@ class Detail extends React.Component {
 
   order(){
     const product = this.state.product;
+    //fetch('/order/'+this.state.userid)
     fetch('/order.json', {
       method:'get',
       product
@@ -143,7 +144,7 @@ class Detail extends React.Component {
       <div className="container mt-5">
         <div className="row pb-5 " style={{ borderBottom: '1px solid rgb(209, 203, 203)' }}>
           <div className="col-sm-5">
-            <img className="img-fluid mb-2" style={{ width: '100%' }} src={this.state.product.mainimg} />
+            <img className="img-fluid mb-2" style={{ width: '100%'  }} src={this.state.product.mainimg} />
           </div>
           <div className="col-sm-7">
             <div className="mt-2">
@@ -220,13 +221,14 @@ class Detail extends React.Component {
           <img className="img-fluid mt-5 mb-4 center" src={this.state.product.subimg} style={{marginLeft:"auto", marginRight:"auto", display: "block"}}></img>
         </div>
         <h3 className="mt-4 pb-4 mx-5" style={{color:"#5f5c5c", textAlign:"center"}}>[{this.state.product.title}]</h3>
-        <h5 className="pb-4 mx-5 pt-4"style={{color:"#5f5c5c", textAlign:"center", 
-          borderTop:"1px solid rgb(250, 181, 140)", borderBottom:"1px solid rgb(250, 181, 140)",backgroundColor:"#fffcf8"}}>{this.state.product.subtitle}</h5>
+        <div className="pb-4 mx-5 pt-4"style={{color:"#5f5c5c", textAlign:"center", 
+          borderTop:"1px solid rgb(250, 181, 140)", borderBottom:"1px solid rgb(250, 181, 140)",
+          backgroundColor:"#fffcf8", fontSize:"18px"}}>{this.state.product.subtitle}</div>
         <h2  className="pb-4" style={{color:"#5f5c5c", textAlign:"center", marginTop:"80px"}}>
           <img width={25} height={25} src={require('./../images/orangecheck.png')}/> 데이라이트 Check Point</h2>
         <div>
-          <h4 className="mt-4" dangerouslySetInnerHTML={ {__html:this.state.product.descTitle1} }></h4>
-          <p className="mt-3" dangerouslySetInnerHTML={ {__html:this.state.product.descript1} }></p>
+          <h4 className="mt-4">{this.state.product.descTitle1}></h4>
+          <p className="mt-3">{this.state.product.descript1}></p>
         </div>
         <div>
           <h4 className="mt-4">{this.state.product.descTitle2}</h4>

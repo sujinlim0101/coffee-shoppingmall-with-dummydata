@@ -19,6 +19,8 @@ class CartSection extends React.Component {
                 userid:userid
             })
         }
+        ///fetch("http://211.63.89.154:8080/SpringBootRestAPIDemo/cart"+this.state.userid)
+
         fetch("cart.json")
             .then(res => res.json())
             .then((result) => {
@@ -55,7 +57,6 @@ class CartSection extends React.Component {
             method: 'post',
             items: this.state.items
         })
-        console.log(this.state.items)
     }
 
     check(index, e) {
@@ -79,6 +80,17 @@ class CartSection extends React.Component {
         });
         this.updateCart()
     }
+    delete() {
+        let list = [];
+        this.state.items.forEach(function (item) {
+            if (!item.checked) {
+                list.push(item);
+            }
+        });
+         this.setState({
+            items: list
+        });
+    }
 
     deleteChecked() {
         let list = [];
@@ -87,11 +99,12 @@ class CartSection extends React.Component {
                 list.push(item);
             }
         });
-        this.setState({
+         this.setState({
             items: list
         });
         this.updateCart();
     }
+    
 
     order() {
         let orderItems = [];
