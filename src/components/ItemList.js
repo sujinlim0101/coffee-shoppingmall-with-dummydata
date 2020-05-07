@@ -12,20 +12,20 @@ class ItemList extends React.Component {
         
         switch (props.item) {
             case 'featuredBeans':
-                //this.state.url = "http://211.63.89.154:8080/SpringBootRestAPIDemo/featuredbeans"
-                this.state.url = '/featuredBeans.json';
+                this.state.url = "http://211.63.89.156:8080/daylight/featuredbeans"
+                //this.state.url = '/featuredBeans.json';
                 break;
-                //this.state.url = "http://211.63.89.154:8080/SpringBootRestAPIDemo/featuredtools"
             case 'featuredTools':
-                this.state.url = '/featuredTools.json';
+                this.state.url = "http://211.63.89.156:8080/daylight/featuredtools"
                 break;
             //this.state.url = "http://211.63.89.154:8080/SpringBootRestAPIDemo/beans"
            case 'beans':
-                this.state.url = 'beans.json';
+               //"http://211.63.89.147:8080/daylight/beans"
+            this.state.url = "/beans.json"
                 break;
             //this.state.url = "http://211.63.89.154:8080/SpringBootRestAPIDemo/tools"
             case 'tools':
-                this.state.url = 'tools.json';
+                this.state.url = "http://211.63.89.156:8080/daylight/tools"
                 break;
             default:
                 alert('Never get here');
@@ -57,7 +57,7 @@ class ItemList extends React.Component {
     render() {
         return (
             <div>                
-                    <div className="row">
+                <div className="row">
                     {this.state.items.map((item, i) => {
                         return (
                             <ItemInfo item={item} key={item.id}/>);

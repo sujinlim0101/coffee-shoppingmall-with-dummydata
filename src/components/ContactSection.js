@@ -5,10 +5,10 @@ class ContactSection extends React.Component{
         window.scrollTo(0, 0);
         return (
             <div className="container mb-5" style={{textAlign:"center"}}>
-                <h1 className="mt-5">Contact us</h1>
+                <h1 className="mt-5" style={{color:"#7d5341"}}>Contact <span style={{color:"#ff8550"}}>us!</span></h1>
                 <div>
                     
-                    <h4>[DayLight Coffee Roasters Wholesale]</h4>
+                    <h4 style={{color:"#7d5341"}}>[ <span  style={{color:"#ff8550"}}> DayLight Coffee Roasters Wholesale </span> ]</h4>
                     <br/>
                     
                     <img className="img-fluid"src={require('./../images/dalgona.jpg')} style={{marginLeft:'auto', marginRight:"auto", display:"block"}}/>
@@ -28,7 +28,7 @@ class ContactSection extends React.Component{
                     <p>꼭 결정한 후에 상담할 필요는 없어요.</p>
                     <p>편한 마음으로 저희에게 연락주세요!</p>
                     <p className="mb-5">소매/도매커피에 대해 상담을 진행하고 있습니다! </p>
-                    연락하기 : <a href="mailto:mimitn@hanmail.net">데이라이트<button className="btn btn-outline-secondary ml-2" type="button">mail</button></a><br/> 
+                    Contact : <a href="mailto:mimitn@hanmail.net" style={{color:"#ff6600", fontWeight:"bold"}}>데이라이트<button className="btn btn-outline-secondary mx-2" type="button" style={{fontSize:"small"}}>Mail</button></a><br/> 
               
                 </div>
             </div>

@@ -1,24 +1,24 @@
 {
     "items": [
-        {"productID": 1,
+        {"productID": "B0000001",
         "title":"에티오피아1 스페셜 원두 모카 스페셜 원두 모카 ",
-        "ea" :99,
+        "ea" :3,
         "price": 12000,
-        "mainimg":  "https://picsum.photos/id/231/250/320",
+        "mainimg":  "B0000001_main.png",
         "checked": true
         },
-        {"productID": 2,
+        {"productID": "B0000002",
         "title":"에티오피아2",
         "ea" :1,
         "price": 13000,
-        "mainimg":  "https://picsum.photos/id/231/250/320",
+        "mainimg":  "B0000002_main.png",
         "checked": true
         },
-        {"productID": 3,
+        {"productID": "B0000003_main.png",
         "title":"에티오피아3",
         "ea" :3,
         "price": 14000,
-        "mainimg":  "https://picsum.photos/id/231/250/320",
+        "mainimg":  "B0000004_main.png",
         "checked": true
         }
     ]

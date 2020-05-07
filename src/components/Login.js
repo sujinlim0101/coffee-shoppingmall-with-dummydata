@@ -64,13 +64,22 @@ export default class Login extends Component {
             alert('로그인이 실패하였습니다.');
             return false;
         }
+        // 우선 무조건 성공.
+        localStorage.setItem("login_email", loginEmail);
+        const id = localStorage.getItem("login_email");
+        if (id === "admin") {
+            window.location.href = "/admin/main.html"
+        } else {
+            this.props.history.push("/");
+            window.location.reload();
+        }
     }
 
     render() {
         return (
             <div className="pb-5 backColor" style={{height: "800px"}}>
                 <div style={{height: "70px"}}></div>
-                <form className="formInner container pt-5 pb-5">
+                <div className="formInner container pt-5 pb-5">
 
                     <h3 className="mb-4">로그인</h3>
 
@@ -96,7 +105,8 @@ export default class Login extends Component {
                     <p className="mt-4" style={{fontSize: "small"}}>아직 회원이 아니시라면? <Link to="./signup"
                                                                                         style={{fontSize: "small"}}> 회원가입</Link>
                     </p>
-                </form>
+
+                </div>
             </div>
         );
     }

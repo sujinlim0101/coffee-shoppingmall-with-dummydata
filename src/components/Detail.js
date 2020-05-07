@@ -67,13 +67,15 @@ class Detail extends React.Component {
   
     const productId = this.props.match.params.productID;
     //fetch("http://211.63.89.154:8080/SpringBootRestAPIDemo/detail-"+productId)
-    fetch('/detail-' + productId + '.json')
+    fetch('http://211.63.89.156:8080/products/'+productId)
       .then(res => res.json())
       .then((result) => {
         this.setState({
           isLoaded: true,
           product: result,
         });
+        console.log(this.state.product.mainimg);
+        console.log(this.state.product.subimg);
       },
         // Note: it's important to handle errors here
         // instead of a catch() block so that we don't swallow
@@ -138,13 +140,12 @@ class Detail extends React.Component {
       show: false
     })
   }
-
   render(){ 
     return (
       <div className="container mt-5">
         <div className="row pb-5 " style={{ borderBottom: '1px solid rgb(209, 203, 203)' }}>
           <div className="col-sm-5">
-            <img className="img-fluid mb-2" style={{ width: '100%'  }} src={this.state.product.mainimg} />
+            <img  src={"/images/"+this.state.product.mainimg} className="img-fluid mb-2" style={{ width: '100%'  }} alt={this.state.product.productID}/>
           </div>
           <div className="col-sm-7">
             <div className="mt-2">
@@ -153,7 +154,7 @@ class Detail extends React.Component {
             </div>
             <div className="mt-5" style={{ borderBottom: '1px solid #efecec' }}>
               <span style={{ fontSize: '0.875rem' }}>가격</span>
-              <p style={{ fontSize: '2rem' }}>{this.state.product.price}</p>
+              <p style={{ fontSize: '2rem' }}>{this.state.product.price}원</p>
             </div>
             <div className="row">
               <div className="col-12 mt-3">
@@ -218,7 +219,7 @@ class Detail extends React.Component {
           </div>
         </div>
         <div>
-          <img className="img-fluid mt-5 mb-4 center" src={this.state.product.subimg} style={{marginLeft:"auto", marginRight:"auto", display: "block"}}></img>
+          <img className="img-fluid mt-5 mb-4 center" src={"/images/"+this.state.product.subimg} style={{marginLeft:"auto", marginRight:"auto", display: "block"}}></img>
         </div>
         <h3 className="mt-4 pb-4 mx-5" style={{color:"#5f5c5c", textAlign:"center"}}>[{this.state.product.title}]</h3>
         <div className="pb-4 mx-5 pt-4"style={{color:"#5f5c5c", textAlign:"center", 
