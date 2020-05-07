@@ -201,9 +201,9 @@ class CartSection extends React.Component {
                             return (
                                 <tr className="" key={i}>
                                     <td style={{itemAlign: "center"}}><input type="checkbox" checked={item.checked}
-                                                                             onChange={this.check.bind(this, i)}/>
+                                        onChange={this.check.bind(this, i)}/>
                                         <Link to={`products/${item.productID}`}>
-                                            <img className="ml-3 img-fluid" src={"/images/"+item.mainimg} width={60} height={80}/>
+                                            <img className="ml-3 img-fluid" src={"/images/"+item.mainimg} width={60} height={80} alt={item.title}/>
                                         </Link>
                                     </td>
                                     <td className="">

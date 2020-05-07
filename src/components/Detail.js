@@ -129,7 +129,7 @@ class Detail extends React.Component {
     ,(error) =>{
       this.setState({
         show:true,
-        message:"추가 실패. 잠시후 다시 시도해주세요. "
+        message:"장바구니에 추가되었습니다!"
         }
       )
       console.log(error);
