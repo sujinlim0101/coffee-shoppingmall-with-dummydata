@@ -1,62 +1,85 @@
 import React, {Component} from "react";
 import './css/LoginSignup.css';
-import {Link, Route} from "react-router-dom";
-import axios from 'axios';
-import jQuery from "jquery";
-import HomeSection from "./HomeSection";
-
-window.$ = window.jQuery = jQuery;
-axios.defaults.withCredentials = true;
-const headers = {withCredentials: true};
+import {Link} from "react-router-dom";
 
 export default class Login extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            success: false
+        }
+    }
+
     login = () => {
         const loginEmail = this.loginEmail.value;
         const loginPassword = this.loginPassword.value;
+        const regExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
         if (loginEmail === '' || loginEmail === undefined) {
             alert("이메일 주소를 입력해 주세요.");
             this.loginEmail.focus();
-            return;
+            return false;
+        } else if (loginEmail.match(regExp) === null || loginEmail.match(regExp) === undefined) {
+            alert("이메일 형식에 맞게 입력해주세요.");
+            this.loginEmail.focus();
+            return false;
         } else if (loginPassword === '' || loginPassword === undefined) {
-            alert("비밀번호를 입력해 주세요.")
+            alert("비밀번호를 입력해 주세요.");
             this.loginPassword.focus();
-            return;
+            return false;
         }
 
+        // 서버에서 받아올 것에 새로운 email, passwd 더해서 전달
         const send_param = {
-            // 서버에서 받아올 것에 새로운 email, password 더해서 전달
             email: this.loginEmail.value,
-            password: this.loginPassword.value
+            passwd: this.loginPassword.value
         }
-        /* 서버와 통해서 로그인 성공 or 실패
-        axios
-            .post("컨트롤러와 통신할 url 경로", send_param)
-            .then(returnData => {
-                    localStorage.setItem("login_email", returnData.data.email);
-                    alert("로그인 성공");
-                    window.location.reload();
-                } else {
-                    alert("로그인 실패");
-                }
-            })
-            //에러
-            .catch(err => {
-                console.log(err);
-            });            
-         */
+        fetch('http://localhost:8080/SpringBootRESTAPIDemo/member/auth', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Credentials': true,
+                'Accept': 'application/json',
+                'Access-Control-Allow-Origin': 'http://localhost:8080/'
+            },
+            body: JSON.stringify(send_param)
+        }).then(res => res.json())
+            .then((result) => {
+                this.setState({
+                        success: result.success
+                    }, (error) => {
+                        this.setState({
+                            success: true
+                        });
+                        console.log(error);
+                    }
+                )
+            });
+
+        if (this.state.success) {
+            localStorage.setItem("login_email", loginEmail);
+            this.props.history.push("/");
+            window.location.reload();
+        } else {
+            alert('로그인이 실패하였습니다.');
+            return false;
+        }
         // 우선 무조건 성공.
         localStorage.setItem("login_email", loginEmail);
-        window.location.href="http://localhost:3000/";
-        this.props.history.push("/");
-        window.location.reload();
+        const id = localStorage.getItem("login_email");
+        if (id === "admin") {
+            window.location.href = "/admin/main.html"
+        } else {
+            this.props.history.push("/");
+            window.location.reload();
+        }
     }
 
     render() {
         return (
             <div className="pb-5 backColor" style={{height: "800px"}}>
                 <div style={{height: "70px"}}></div>
-                <form className="formInner container pt-5 pb-5" action="/login" method="POST">
+                <div className="formInner container pt-5 pb-5">
 
                     <h3 className="mb-4">로그인</h3>
 
@@ -83,7 +106,7 @@ export default class Login extends Component {
                                                                                         style={{fontSize: "small"}}> 회원가입</Link>
                     </p>
 
-                </form>
+                </div>
             </div>
         );
     }

@@ -103,6 +103,7 @@ class CartSection extends React.Component {
             items: list
         });
         this.updateCart();
+
     }
     
 
@@ -113,32 +114,46 @@ class CartSection extends React.Component {
                 orderItems.push(item)
             }
         })
-
-        fetch('http://211.63.89.154:8080/SpringBootRestAPIDemo/order/'+this.state.userid, {
-            method: 'POST', 
-            headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json',
-              'Access-Control-Allow-Credentials': true,
-              'Access-Control-Allow-Origin': 'http://211.63.89.154:8000/', 
-
-            },
-            body: JSON.stringify(orderItems)
+        fetch('/order.json')
+        .then(res => res.json())
+        .then((result) => {
+            this.props.history.push('/order/'+result.sellID);
+        },
+             // Note: it's important to handle errors here
+               // instead of a catch() block so that we don't swallow
+              // exceptions from actual bugs in components.
+        (error) => {
+            this.setState({
+            isLoaded: true,
+            error
+        });
+        console.log(error);
         })
-            .then(res => res.json())
-            .then((result) => {
-                    this.props.history.push('/order/'+result.sellID);
-                },
-                // Note: it's important to handle errors here
-                // instead of a catch() block so that we don't swallow
-                // exceptions from actual bugs in components.
-                (error) => {
-                    this.setState({
-                        isLoaded: true,
-                        error
-                    });
-                    console.log(error);
-                })
+        // fetch('http://l92.168.56.2:8080/order/'+this.state.userid, {
+        //     method: 'POST', 
+        //     headers: {
+        //       'Accept': 'application/json',
+        //       'Content-Type': 'application/json',
+        //       'Access-Control-Allow-Credentials': true,
+        //       'Access-Control-Allow-Origin': 'http://192.168.56.2:8080/', 
+
+        //     },
+        //     body: JSON.stringify(orderItems)
+        // })
+        //     .then(res => res.json())
+        //     .then((result) => {
+        //             this.props.history.push('/order/'+result.sellID);
+        //         },
+        //         // Note: it's important to handle errors here
+        //         // instead of a catch() block so that we don't swallow
+        //         // exceptions from actual bugs in components.
+        //         (error) => {
+        //             this.setState({
+        //                 isLoaded: true,
+        //                 error
+        //             });
+        //             console.log(error);
+        //         })
     }
 
     add(index, item, e) {
@@ -186,9 +201,9 @@ class CartSection extends React.Component {
                             return (
                                 <tr className="" key={i}>
                                     <td style={{itemAlign: "center"}}><input type="checkbox" checked={item.checked}
-                                                                             onChange={this.check.bind(this, i)}/>
+                                        onChange={this.check.bind(this, i)}/>
                                         <Link to={`products/${item.productID}`}>
-                                            <img className="ml-3 img-fluid" src={item.mainimg} width={60} height={80}/>
+                                            <img className="ml-3 img-fluid" src={"/images/"+item.mainimg} width={60} height={80} alt={item.title}/>
                                         </Link>
                                     </td>
                                     <td className="">
@@ -224,9 +239,7 @@ class CartSection extends React.Component {
                                                             textAlign: "center",
                                                             height: "22px",
                                                             fontSize: "5px",
-                                                            float: "left"
-                                                        }}
-                                                >+
+                                                            float: "left"}} >+
                                                 </button>
                                             </div>
                                         </div>
