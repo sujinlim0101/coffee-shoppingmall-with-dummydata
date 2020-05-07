@@ -4,7 +4,7 @@ class ItemInfo extends React.Component {
     render() {
 
         return (
-            <div className="col-6 col-sm-4 col-md-3 mb-4 mt-4" >
+            <div className="col-6 col-sm-4 col-md-3 mb-2 mt-2" >
                 <div className="card" style={{border: "none"}}>
                         <Link to={`products/${this.props.item.productID}`} state={this.props.item}>                        
                         <img src={'/images/'+this.props.item.mainimg} className="card-img-top" alt={this.props.item.title}

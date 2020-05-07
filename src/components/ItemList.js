@@ -57,7 +57,7 @@ class ItemList extends React.Component {
     render() {
         return (
             <div>                
-                    <div className="row">
+                <div className="row">
                     {this.state.items.map((item, i) => {
                         return (
                             <ItemInfo item={item} key={item.id}/>);
