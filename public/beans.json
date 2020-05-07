@@ -10,7 +10,7 @@
         "mainimg": "B0000002_main.png", 
         "price": "15,000"
         },
-        {"productID": 3, 
+        {"productID": "B0000003", 
         "title": "에티오피아 시다모", 
         "mainimg": "B0000003_main.png", 
         "price": "15,000"

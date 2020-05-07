@@ -8,7 +8,7 @@ class ItemInfo extends React.Component {
                 <div className="card" style={{border: "none"}}>
                         <Link to={`products/${this.props.item.productID}`} state={this.props.item}>                        
                         <img src={'/images/'+this.props.item.mainimg} className="card-img-top" alt={this.props.item.title}
-                        style={{border:"1px solid #d2d0d0"}}/>
+                        style={{border:"1px solid #d2d0d0", width:"250px", height:"320px"}}/>
                         <div className="card-body">
                             <p className="card-title mb-0">{this.props.item.title}</p>
                             <h6 className="card-text">{this.props.item.price}원</h6>

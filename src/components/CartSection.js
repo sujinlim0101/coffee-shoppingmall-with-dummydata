@@ -114,7 +114,21 @@ class CartSection extends React.Component {
                 orderItems.push(item)
             }
         })
-
+        fetch('/order.json')
+        .then(res => res.json())
+        .then((result) => {
+            this.props.history.push('/order/'+result.sellID);
+        },
+             // Note: it's important to handle errors here
+               // instead of a catch() block so that we don't swallow
+              // exceptions from actual bugs in components.
+        (error) => {
+            this.setState({
+            isLoaded: true,
+            error
+        });
+        console.log(error);
+        })
         // fetch('http://l92.168.56.2:8080/order/'+this.state.userid, {
         //     method: 'POST', 
         //     headers: {
@@ -225,9 +239,7 @@ class CartSection extends React.Component {
                                                             textAlign: "center",
                                                             height: "22px",
                                                             fontSize: "5px",
-                                                            float: "left"
-                                                        }}
-                                                >+
+                                                            float: "left"}} >+
                                                 </button>
                                             </div>
                                         </div>

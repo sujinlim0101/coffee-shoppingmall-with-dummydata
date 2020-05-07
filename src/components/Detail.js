@@ -67,7 +67,7 @@ class Detail extends React.Component {
   
     const productId = this.props.match.params.productID;
     //fetch("http://211.63.89.154:8080/SpringBootRestAPIDemo/detail-"+productId)
-    fetch('/detail-' + productId + '.json')
+    fetch('http://211.63.89.156:8080/products/'+productId)
       .then(res => res.json())
       .then((result) => {
         this.setState({

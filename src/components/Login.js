@@ -48,9 +48,11 @@ export default class Login extends Component {
         // 우선 무조건 성공.
         localStorage.setItem("login_email", loginEmail);
         const id = localStorage.getItem("login_email");
-        if(id === "admin") {this.props.history.push("/admin/main.html")}
-        else {this.props.history.push("/");
-        window.location.reload();};
+        if(id === "admin") {
+            window.location.href="/admin/main.html"}
+        else {
+            this.props.history.push("/");
+            window.location.reload();};
     }
 
     render() {
