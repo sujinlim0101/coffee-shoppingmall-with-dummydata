@@ -103,6 +103,7 @@ class CartSection extends React.Component {
             items: list
         });
         this.updateCart();
+
     }
     
 
@@ -114,31 +115,31 @@ class CartSection extends React.Component {
             }
         })
 
-        fetch('http://localhost:8080//order/'+this.state.userid, {
-            method: 'POST', 
-            headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json',
-              'Access-Control-Allow-Credentials': true,
-              'Access-Control-Allow-Origin': 'http://localhost:8000/', 
+        // fetch('http://l92.168.56.2:8080/order/'+this.state.userid, {
+        //     method: 'POST', 
+        //     headers: {
+        //       'Accept': 'application/json',
+        //       'Content-Type': 'application/json',
+        //       'Access-Control-Allow-Credentials': true,
+        //       'Access-Control-Allow-Origin': 'http://192.168.56.2:8080/', 
 
-            },
-            body: JSON.stringify(orderItems)
-        })
-            .then(res => res.json())
-            .then((result) => {
-                    this.props.history.push('/order/'+result.sellID);
-                },
-                // Note: it's important to handle errors here
-                // instead of a catch() block so that we don't swallow
-                // exceptions from actual bugs in components.
-                (error) => {
-                    this.setState({
-                        isLoaded: true,
-                        error
-                    });
-                    console.log(error);
-                })
+        //     },
+        //     body: JSON.stringify(orderItems)
+        // })
+        //     .then(res => res.json())
+        //     .then((result) => {
+        //             this.props.history.push('/order/'+result.sellID);
+        //         },
+        //         // Note: it's important to handle errors here
+        //         // instead of a catch() block so that we don't swallow
+        //         // exceptions from actual bugs in components.
+        //         (error) => {
+        //             this.setState({
+        //                 isLoaded: true,
+        //                 error
+        //             });
+        //             console.log(error);
+        //         })
     }
 
     add(index, item, e) {
@@ -188,7 +189,7 @@ class CartSection extends React.Component {
                                     <td style={{itemAlign: "center"}}><input type="checkbox" checked={item.checked}
                                                                              onChange={this.check.bind(this, i)}/>
                                         <Link to={`products/${item.productID}`}>
-                                            <img className="ml-3 img-fluid" src={item.mainimg} width={60} height={80}/>
+                                            <img className="ml-3 img-fluid" src={"/images/"+item.mainimg} width={60} height={80}/>
                                         </Link>
                                     </td>
                                     <td className="">

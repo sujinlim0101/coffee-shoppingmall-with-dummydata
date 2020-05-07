@@ -1,34 +1,34 @@
 {
     "items": [
-        {"productID": 1, 
+        {"productID": "B0000001", 
         "title": "코스타리카 오가닉", 
-        "mainimg": "https://picsum.photos/id/231/250/320", 
-        "price": "15,000원"
+        "mainimg": "B0000001_main.png", 
+        "price": "15,000"
         },
-        {"productID": 2, 
+        {"productID": "B0000002", 
         "title": "에티오피아 예가체프", 
-        "mainimg": "https://picsum.photos/id/232/250/320", 
-        "price": "15,000원"
+        "mainimg": "B0000002_main.png", 
+        "price": "15,000"
         },
         {"productID": 3, 
         "title": "에티오피아 시다모", 
-        "mainimg": "https://picsum.photos/id/233/250/320", 
-        "price": "15,000원"
+        "mainimg": "B0000003_main.png", 
+        "price": "15,000"
         },
         {"productID": 4, 
         "title": "케냐 AA 오가닉 스페셜", 
-        "mainimg": "https://picsum.photos/id/234/250/320", 
-        "price": "15,000원"
+        "mainimg": "B0000004_main.png", 
+        "price": "15,000"
         },
         {"productID": 5, 
         "title": "과테말라 G2",
-        "mainimg": "https://picsum.photos/id/234/250/320", 
-        "price": "15,000원"
+        "mainimg": "B0000005_main.png", 
+        "price": "15,000"
         },
         {"productID": 6, 
         "title": "온두라스 G8", 
-        "mainimg": "https://picsum.photos/id/236/250/320", 
-        "price": "15,000원"
+        "mainimg": "B0000006_main.png", 
+        "price": "15,000"
         }
     ]
 }
