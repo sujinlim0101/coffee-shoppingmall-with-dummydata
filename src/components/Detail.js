@@ -108,9 +108,9 @@ class Detail extends React.Component {
         (error) => {
             this.setState({
             isLoaded: true,
-            error
+            error,
         });
-        console.log(error);
+        alert("결제에 실패했습니다. 잠시후 다시 시도해주세요.");
         })
   }
 
