@@ -24,23 +24,24 @@ const Mycarousel = () => {
         </Carousel.Item>
         <Carousel.Item>
           <Link to="/about">
-            <img
+            <img width={1920} 
+              height={500}
               className="d-block "
-              src="https://picsum.photos/id/425/1920/500"
+              src={require("../images/coffeetexture.jpg")} 
               alt="Third slide"
             />
           </Link>
           <Carousel.Caption>
             <h2 style={{fontWeight: "bold"}} >우리는 커피를 볶고</h2>
             <h4 className="mt-4" style={{fontWeight: "bold"}}>맛있는 콩을 카페에 제공합니다. </h4>
-            <h5 className="mt-3">우리에 대해 더 알아봐요.</h5>
+            <h4 className="mt-3" style={{fontWeight: "bold"}}>우리에 대해 더 알아봐요.</h4>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <Link to="/tools">
             <img
                 className="d-block "
-                width={1920} 
+                width={2100} 
                 height={500}
                 src={require("../images/brewing.jpg")} 
                 alt="Third slide"
