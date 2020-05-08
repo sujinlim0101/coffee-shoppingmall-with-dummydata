@@ -21,7 +21,7 @@ class ItemList extends React.Component {
             //this.state.url = "http://211.63.89.154:8080/SpringBootRestAPIDemo/beans"
            case 'beans':
                //"http://211.63.89.147:8080/daylight/beans"
-            this.state.url = "/beans.json"
+            this.state.url = "http://211.63.89.156:8080/daylight/beans"
                 break;
             //this.state.url = "http://211.63.89.154:8080/SpringBootRestAPIDemo/tools"
             case 'tools':

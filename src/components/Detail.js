@@ -9,12 +9,12 @@ class Detail extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      id : localStorage.getItem("login_email"),
       isLoaded: true,
       product: {},
-      order: {
-        quantity: 1,
-        productId: 1,
-        userId: 1
+      itemInfo:{
+        quantity:1,
+        productID:1,
       },
       isLoggedIn:false,
       show:false,
@@ -33,28 +33,35 @@ class Detail extends React.Component {
       </Popover> 
   );
   minus = () => {
-    var quantity = this.state.order.quantity;
+    var quantity = this.state.itemInfo.quantity;
     if (quantity > 1) {
       quantity--
+      const item = {...this.state.itemInfo, quantity:quantity}
+      this.setState({itemInfo:item});
     } else {
       quantity = 1;
+      const item = {...this.state.itemInfo, quantity:quantity}
+      this.setState({itemInfo:item});
     }
-    this.setState({ order: { quantity } });
   }
 
   add = () => {
-    var quantity = this.state.order.quantity;
+    var quantity = this.state.itemInfo.quantity;
     if (quantity < 99) {
       quantity++;
+      const item = {...this.state.itemInfo, quantity:quantity}
+      this.setState({itemInfo:item});
     } else {
       quantity = 99;
+      const item = {...this.state.itemInfo, quantity:quantity}
+      this.setState({itemInfo:item});
     }
-    this.setState({ order: { quantity } });
+
   }
 
   componentDidMount() {
       window.scrollTo(0, 0);
-      let token = localStorage.getItem('login_email');
+      let token = this.state.id;
       if(token){
         this.setState({
           isLoggedIn:true
@@ -65,17 +72,18 @@ class Detail extends React.Component {
         })
       }
   
-    const productId = this.props.match.params.productID;
-    //fetch("http://211.63.89.154:8080/SpringBootRestAPIDemo/detail-"+productId)
-    fetch('http://211.63.89.156:8080/products/'+productId)
+    const productID = this.props.match.params.productID;
+    //fetch('http://211.63.89.156:8080/daylight/products/'+productId)
+      fetch('http://211.63.89.156:8080/daylight/products/'+productID)
       .then(res => res.json())
       .then((result) => {
+        console.log(result);
         this.setState({
           isLoaded: true,
-          product: result,
+          product: result.items,
+          itemInfo: {quantity:1, productID: productID}
         });
-        console.log(this.state.product.mainimg);
-        console.log(this.state.product.subimg);
+        //console.log(productId);
       },
         // Note: it's important to handle errors here
         // instead of a catch() block so that we don't swallow
@@ -91,32 +99,42 @@ class Detail extends React.Component {
   }
 
   order(){
-    const product = this.state.product;
-    //fetch('/order/'+this.state.userid)
-    fetch('/order.json', {
-      method:'get',
-      product
+    fetch('http://211.63.89.156/daylight/detail/order/'+this.state.id,{
+      method: 'POST', 
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Credentials': true,
+        'Access-Control-Allow-Origin': 'http://211.63.89.156/', 
+      },
+      body: JSON.stringify(this.state.itemInfo)
     })
     .then(res => res.json())
     .then((result) => {
-      this.props.history.push('/order/'+result.sellID);
-    },
-    // Note: it's important to handle errors here
-    // instead of a catch() block so that we don't swallow
-    // exceptions from actual bugs in components.
-    (error) => {
-      this.setState({
-          isLoaded: true,
-          error
-      });
-      console.log(error);
-    })
+            this.props.history.push('/order/'+result.sellID);
+        },
+             // Note: it's important to handle errors here
+               // instead of a catch() block so that we don't swallow
+              // exceptions from actual bugs in components.
+        (error) => {
+            this.setState({
+            isLoaded: true,
+            error
+        });
+        console.log(error);
+        })
   }
+
   addCart = () => {
-    let addCartSuccess;
-    
-    fetch('/addcart',{
-      product:this.state.product
+    fetch('http://211.63.89.156/daylight/addcart/'+this.state.id,{
+      method: 'POST', 
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Credentials': true,
+        'Access-Control-Allow-Origin': 'http://211.63.89.156/', 
+      },
+      body: JSON.stringify(this.state.itemInfo)
     })
     .then(res => res.json())
     .then((result) => {
@@ -129,7 +147,7 @@ class Detail extends React.Component {
     ,(error) =>{
       this.setState({
         show:true,
-        message:"장바구니에 추가되었습니다!"
+        message:"실패했습니다. 잠시 후 다시 시도해주세요."
         }
       )
       console.log(error);
@@ -173,7 +191,7 @@ class Detail extends React.Component {
                               <button className="btn btn-outline-secondary" type="button" onClick={this.minus}
                               >-</button>
                             </div>
-                            <div className="pt-2" style={{ textAlign: 'center', text:"x-small" ,width:"37px",border:"1px gray solid"}}>{this.state.order.quantity}</div>
+                            <div className="pt-2" style={{ textAlign: 'center', text:"x-small" ,width:"37px",border:"1px gray solid"}}>{this.state.itemInfo.quantity}</div>
                             <div className="input-group-append">
                               <button className="btn btn-outline-secondary" type="button" onClick={this.add}>+</button>
                             </div>
@@ -228,7 +246,7 @@ class Detail extends React.Component {
         <h2  className="pb-4" style={{color:"#5f5c5c", textAlign:"center", marginTop:"80px"}}>
           <img width={25} height={25} src={require('./../images/orangecheck.png')}/> 데이라이트 Check Point</h2>
         <div>
-          <h4 className="mt-4">{this.state.product.descTitle1}></h4>
+          <h4 className="mt-4">{this.state.product.descTitle1}</h4>
           <p className="mt-3">{this.state.product.descript1}></p>
         </div>
         <div>
