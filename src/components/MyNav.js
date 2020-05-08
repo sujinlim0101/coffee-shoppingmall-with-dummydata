@@ -29,8 +29,8 @@ class MyNav extends React.Component {
             if (localStorage.getItem("login_email")) {
                 resultForm = (
                     <>
-                        <Nav.Link href="/cart" className="mx-2 cate2"><FiShoppingCart style={{fontSize:"1.7em", color:"#504e4e"}}></FiShoppingCart></Nav.Link>
-                        <div><Nav.Link href="/logout" className="mx-2 cate2" style={{fontSize:"12px", color:"rgb(72, 71, 71)",padding:"13px"}} onClick={logout} >로그아웃</Nav.Link></div>
+                        <Nav.Link href="/cart" className="mx-2 userinfo"><FiShoppingCart style={{fontSize:"1.7em", color:"#504e4e"}}></FiShoppingCart></Nav.Link>
+                        <Nav.Link href="/logout" className="mx-2 userinfo" style={{fontSize:"12px", color:"rgb(72, 71, 71)",padding:"13px"}} onClick={logout} >로그아웃</Nav.Link>
                     </>
                 );
                 return resultForm;
@@ -64,9 +64,7 @@ class MyNav extends React.Component {
                         <Nav.Link eventKey={1} as={Link} to="/beans" className="mx-4 category">BEANS</Nav.Link>
                         <Nav.Link eventKey={2} as={Link} to="/tools" className="mx-4 category"> TOOLS</Nav.Link>
                         <Nav.Link eventKey={3} as={Link} to="/about" className="mx-4 category">ABOUT US</Nav.Link>
-                        <Nav.Link eventKey={4} as={Link} to="/contact" className="mx-4 category">CONTACT US</Nav.Link>
-                    </Nav>
-                    <Nav>
+                        <Nav.Link eventKey={4} as={Link} to="/contact" className="mx-4 category">CONTACT US</Nav.Link>                   
                         {resultForm}
                     </Nav>
                 </Navbar.Collapse>

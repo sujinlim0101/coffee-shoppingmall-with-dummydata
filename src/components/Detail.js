@@ -22,16 +22,6 @@ class Detail extends React.Component {
     };
   };
   
-  
-  popover = (
-    <Popover id="popover-basic">
-      <Popover.Content>
-        <button style={{fontSize:"x-small"}} type="button" id="close" class="close">&times;</button> 
-        <p>장바구니에 추가됐습니다. </p>
-        <Link to="/cart"><button style={{fontSize:"x-small"}}> 확인하러 가기</button></Link>
-      </Popover.Content>
-      </Popover> 
-  );
   minus = () => {
     var ea = this.state.itemInfo.ea;
     if (ea > 1) {

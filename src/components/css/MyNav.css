@@ -5,3 +5,9 @@
 .category:hover, .category.active {
     background: #fbd5c5;
 }
+
+.userinfo:hover {
+    background: rgba(247, 247, 247, 1);
+}
+  
+  
