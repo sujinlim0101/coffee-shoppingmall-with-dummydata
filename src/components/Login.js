@@ -37,7 +37,7 @@ export default class Login extends Component {
         }
         axios({
             method: 'post',
-            url: 'http://211.63.89.156/daylight/member/auth',
+            url: 'http://211.63.89.156:8080/daylight/member/auth',
             data: JSON.stringify(send_param),
             headers: {
                 'content-type': 'application/json'
