@@ -37,8 +37,8 @@ class MyNav extends React.Component {
             } else {
                 resultForm = (
                     <>
-                        <Nav.Link className="mx-2 cate2" href="/login" style={{fontSize:"12px", color:"rgb(72, 71, 71)",padding:"13px"}}>로그인</Nav.Link>
-                        <Nav.Link className="cate2" href="/signup" style={{fontSize:"12px", color:"rgb(72, 71, 71)",padding:"13px"}}>회원가입</Nav.Link>
+                        <Nav.Link className="mx-2 userinfo" href="/login" style={{fontSize:"12px", color:"rgb(72, 71, 71)",padding:"13px"}}>로그인</Nav.Link>
+                        <Nav.Link className="userinfo" href="/signup" style={{fontSize:"12px", color:"rgb(72, 71, 71)",padding:"13px"}}>회원가입</Nav.Link>
                     </>
                 )
                 return resultForm;

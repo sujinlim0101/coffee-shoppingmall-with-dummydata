@@ -5,8 +5,3 @@
 .category:hover, .category.active {
     background: #fbd5c5;
 }
-
-.cate2:hover, .cate2.active{
-    text-decoration: underline;
-}
-  

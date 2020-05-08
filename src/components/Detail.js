@@ -13,7 +13,7 @@ class Detail extends React.Component {
       isLoaded: true,
       product: {},
       itemInfo:{
-        quantity:1,
+        ea:1,
         productID:1,
       },
       isLoggedIn:false,
@@ -33,27 +33,27 @@ class Detail extends React.Component {
       </Popover> 
   );
   minus = () => {
-    var quantity = this.state.itemInfo.quantity;
-    if (quantity > 1) {
-      quantity--
-      const item = {...this.state.itemInfo, quantity:quantity}
+    var ea = this.state.itemInfo.ea;
+    if (ea > 1) {
+      ea--
+      const item = {...this.state.itemInfo, ea:ea}
       this.setState({itemInfo:item});
     } else {
-      quantity = 1;
-      const item = {...this.state.itemInfo, quantity:quantity}
+      ea = 1;
+      const item = {...this.state.itemInfo, ea:ea}
       this.setState({itemInfo:item});
     }
   }
 
   add = () => {
-    var quantity = this.state.itemInfo.quantity;
-    if (quantity < 99) {
-      quantity++;
-      const item = {...this.state.itemInfo, quantity:quantity}
+    var ea = this.state.itemInfo.ea;
+    if (ea < 99) {
+      ea++;
+      const item = {...this.state.itemInfo, ea:ea}
       this.setState({itemInfo:item});
     } else {
-      quantity = 99;
-      const item = {...this.state.itemInfo, quantity:quantity}
+      ea = 99;
+      const item = {...this.state.itemInfo, ea:ea}
       this.setState({itemInfo:item});
     }
 
@@ -80,7 +80,7 @@ class Detail extends React.Component {
         this.setState({
           isLoaded: true,
           product: result.items,
-          itemInfo: {quantity:1, productID: productID}
+          itemInfo: {ea:1, productID: productID}
         });
         //console.log(productId);
       },
@@ -190,7 +190,7 @@ class Detail extends React.Component {
                               <button className="btn btn-outline-secondary" type="button" onClick={this.minus}
                               >-</button>
                             </div>
-                            <div className="pt-2" style={{ textAlign: 'center', text:"x-small" ,width:"37px",border:"1px gray solid"}}>{this.state.itemInfo.quantity}</div>
+                            <div className="pt-2" style={{ textAlign: 'center', text:"x-small" ,width:"37px",border:"1px gray solid"}}>{this.state.itemInfo.ea}</div>
                             <div className="input-group-append">
                               <button className="btn btn-outline-secondary" type="button" onClick={this.add}>+</button>
                             </div>
