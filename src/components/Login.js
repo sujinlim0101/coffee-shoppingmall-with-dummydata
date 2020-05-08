@@ -30,14 +30,14 @@ export default class Login extends Component {
             return false;
         }
 
-        // 서버에서 받아올 것에 새로운 email, passwd 더해서 전달
+        // 서버에서 받아올 것에 새로운 email, password 더해서 전달
         const send_param = {
             email: this.loginEmail.value,
-            passwd: this.loginPassword.value
+            password: this.loginPassword.value
         }
         axios({
             method: 'post',
-            url: 'http://211.63.89.156/daylight/member/auth',
+            url: 'http://211.63.89.147:8080/daylight/member/auth',
             data: JSON.stringify(send_param),
             headers: {
                 'content-type': 'application/json'
@@ -77,7 +77,7 @@ export default class Login extends Component {
 
                     <div className="form-group">
                         <label>비밀번호</label>
-                        <input name="passwd" type="password" className="form-control" placeholder="Enter password"
+                        <input name="password" type="password" className="form-control" placeholder="Enter password"
                                ref={ref => this.loginPassword = ref}/>
                     </div>
 

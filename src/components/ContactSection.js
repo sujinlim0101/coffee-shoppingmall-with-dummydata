@@ -11,7 +11,7 @@ class ContactSection extends React.Component{
                     <h4 style={{color:"#7d5341"}}>[ <span  style={{color:"#ff8550"}}> DayLight Coffee Roasters Wholesale </span> ]</h4>
                     <br/>
                     
-                    <img className="img-fluid"src={require('./../images/dalgona.jpg')} style={{marginLeft:'auto', marginRight:"auto", display:"block"}}/>
+                    <img className="img-fluid"src={require('./../images/dalgona.jpg')} style={{marginLeft:'auto', marginRight:"auto", display:"block"}} alt={'dalgona'}/>
                     <h3 style={{ textDecoration: "underline"}} className="mt-4 mb-4">Special Coffee</h3>
                         <li>좋은 질의 커피</li>
                         <li>꼼꼼한 커피 선별 작업</li>

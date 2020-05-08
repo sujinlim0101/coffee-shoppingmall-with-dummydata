@@ -22,7 +22,7 @@ class AboutSection extends React.Component{
                     <h4>[DayLight Coffee Roasters Wholesale]</h4>
                     <br/>
 
-                    <img className="img-fluid"src={require('./../images/coffeeinhand.jpg')} style={{marginLeft:'auto', marginRight:"auto", display:"block"}}/>
+                    <img className="img-fluid"src={require('./../images/coffeeinhand.jpg')} style={{marginLeft:'auto', marginRight:"auto", display:"block"}} alt={'coffeebean'}/>
                     <h3 style={{ textDecoration: "underline"}} className="mt-4 mb-4">Since 2003</h3>
                     {/*<div id={'map'}/>*/}
                     <p>양평에 있는 작은 커피숍에서 시작하였습니다.</p>
