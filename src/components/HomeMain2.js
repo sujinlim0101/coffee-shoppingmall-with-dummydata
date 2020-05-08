@@ -13,7 +13,7 @@ class HomeMain2 extends React.Component{
                      <div className="mt-3"><ItemList item={"featuredBeans"} ></ItemList></div>
                     </div>
                 </div>
-                <div className="mt-2" style={{backgroundColor:"#f5f4f1"}}>
+                <div className="mt-2" style={{backgroundColor:"rgb(251, 249, 244)"}}>
                     <div className="container">
                         <div className="homeText px-5 pt-4"><h4 className="pb-3 px-5 mb-3 pt-3">요즘 뜨는 커피 도구</h4></div>
                         <div className="mt-3"><ItemList item={"featuredTools"} ></ItemList></div>
