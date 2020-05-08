@@ -230,7 +230,7 @@ class Detail extends React.Component {
           <img className="img-fluid mt-5 mb-4 center" src={"/images/"+this.state.product.subimg} style={{marginLeft:"auto", marginRight:"auto", display: "block"}}></img>
         </div>
         <h3 className="mt-4 pb-4 mx-5" style={{color:"#5f5c5c", textAlign:"center"}}>[{this.state.product.title}]</h3>
-        <div className="pb-4 mx-5 pt-4"style={{color:"#5f5c5c", textAlign:"center", 
+        <div className="pb-4 mx-3 pt-4"style={{color:"#5f5c5c", textAlign:"center", 
           borderTop:"1px solid rgb(250, 181, 140)", borderBottom:"1px solid rgb(250, 181, 140)",
           backgroundColor:"#fffcf8", fontSize:"18px"}}>{this.state.product.subtitle}</div>
         <h2  className="pb-4" style={{color:"#5f5c5c", textAlign:"center", marginTop:"80px"}}>
