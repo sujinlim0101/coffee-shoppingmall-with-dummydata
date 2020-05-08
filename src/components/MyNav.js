@@ -64,9 +64,7 @@ class MyNav extends React.Component {
                         <Nav.Link eventKey={1} as={Link} to="/beans" className="mx-4 category">BEANS</Nav.Link>
                         <Nav.Link eventKey={2} as={Link} to="/tools" className="mx-4 category"> TOOLS</Nav.Link>
                         <Nav.Link eventKey={3} as={Link} to="/about" className="mx-4 category">ABOUT US</Nav.Link>
-                        <Nav.Link eventKey={4} as={Link} to="/contact" className="mx-4 category">CONTACT US</Nav.Link>
-                    </Nav>
-                    <Nav>
+                        <Nav.Link eventKey={4} as={Link} to="/contact" className="mx-4 category">CONTACT US</Nav.Link>                   
                         {resultForm}
                     </Nav>
                 </Navbar.Collapse>
