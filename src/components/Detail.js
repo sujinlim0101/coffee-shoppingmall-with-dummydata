@@ -234,7 +234,7 @@ class Detail extends React.Component {
           borderTop:"1px solid rgb(250, 181, 140)", borderBottom:"1px solid rgb(250, 181, 140)",
           backgroundColor:"#fffcf8", fontSize:"18px"}}>{this.state.product.subtitle}</div>
         <h2  className="pb-4" style={{color:"#5f5c5c", textAlign:"center", marginTop:"80px"}}>
-          <img width={25} height={25} src={require('./../images/orangecheck.png')}/> 데이라이트 Check Point</h2>
+          <img width={25} height={25} src={'/images/checkorange.png'}/> 데이라이트 Check Point</h2>
         <div>
           <h4 className="mt-4">{this.state.product.descTitle1}</h4>
           <p className="mt-3"><div dangerouslySetInnerHTML={{__html:this.state.product.descript1}} /></p>
