@@ -216,7 +216,7 @@ class CartSection extends React.Component {
                     <table className="table mt-5" style={{borderBottom: "1px solid rgb(228, 225, 225)"}}>
                         <thead>
                         <tr className=""
-                            style={{borderTop: '2px solid rgb(247, 212, 169)', borderBottom: '1px solid #fff8f8'}}>
+                            style={{borderTop: '2px solid rgb(255, 191, 112)', borderBottom: '1px solid #fff8f8'}}>
                             <td className="">
                                 <div style={{fontSize: 'x-small'}}>All</div>
                                 <input type="checkbox" onChange={this.checkAll.bind(this)}/></td>
