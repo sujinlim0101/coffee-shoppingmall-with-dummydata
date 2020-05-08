@@ -29,13 +29,8 @@ class MyNav extends React.Component {
             if (localStorage.getItem("login_email")) {
                 resultForm = (
                     <>
-<<<<<<< HEAD
                         <Nav.Link href="/cart" className="mx-2 userinfo"><FiShoppingCart style={{fontSize:"1.7em", color:"#504e4e"}}></FiShoppingCart></Nav.Link>
                         <Nav.Link href="/logout" className="mx-2 userinfo" style={{fontSize:"12px", color:"rgb(72, 71, 71)",padding:"13px"}} onClick={logout} >로그아웃</Nav.Link>
-=======
-                        <Nav.Link href="/cart" className="mx-2 cate2"><FiShoppingCart style={{fontSize:"1.7em", color:"#504e4e"}}></FiShoppingCart></Nav.Link>
-                        <div><Nav.Link href="/logout" className="mx-2 cate2" style={{fontSize:"12px", color:"rgb(72, 71, 71)",padding:"13px"}} onClick={logout} >로그아웃</Nav.Link></div>
->>>>>>> 087e9fe2a53408c036ff27537d7b4f85a96be0e2
                     </>
                 );
                 return resultForm;
