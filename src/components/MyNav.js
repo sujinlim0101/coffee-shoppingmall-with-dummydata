@@ -55,7 +55,7 @@ class MyNav extends React.Component {
                     boxShadow: "rgb(246, 204, 152) 0px 2px 3px"
                 }} width={150}>
                 <div className="container">
-                <Navbar.Brand href="/" className="mx-5"><img src={require('./../images/daylogo.png')} alt="Logo"
+                <Navbar.Brand href="/" className="mr-5 ml-4"><img src={require('./../images/daylogo.png')} alt="Logo"
                              width={140} height={50}/>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
