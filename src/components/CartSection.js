@@ -23,7 +23,7 @@ class CartSection extends React.Component {
             this.props.history.push('/login');
         }
         //fetch("cart.json")
-        fetch("http://211.63.89.156/daylight/cart/"+userid
+        fetch("http://211.63.89.156/daylight/cart/"+userid)
             .then(res => res.json())
             .then((result) => {
                     this.setState({
@@ -35,14 +35,14 @@ class CartSection extends React.Component {
                 // Note: it's important to handle errors here
                 // instead of a catch() block so that we don't swallow
                 // exceptions from actual bugs in components.
-                (error) => {
-                    this.setState({
-                        isLoaded: true,
-                        error
-                    });
-                    console.log(error);
-                }
-            )
+            (error) => {
+                this.setState({
+                    isLoaded: true,
+                    error
+                });
+                console.log(error);
+            }
+            
     }
 
     updateCart() {
