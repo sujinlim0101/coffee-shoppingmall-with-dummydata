@@ -125,13 +125,14 @@ class Detail extends React.Component {
   }
 
   addCart = () => {
-    fetch('http://211.63.89.156/daylight/addcart/'+this.state.id,{
+    console.log(this.state.itemInfo);
+    fetch('http://211.63.89.147:8080/daylight/addcart/'+this.state.id,{
       method: 'POST', 
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
         'Access-Control-Allow-Credentials': true,
-        'Access-Control-Allow-Origin': 'http://211.63.89.156/', 
+        'Access-Control-Allow-Origin': 'http://211.63.89.147:8080/',
       },
       body: JSON.stringify(this.state.itemInfo)
     })
