@@ -77,7 +77,6 @@ class Detail extends React.Component {
       fetch('http://211.63.89.156:8080/daylight/products/'+productID)
       .then(res => res.json())
       .then((result) => {
-        console.log(result);
         this.setState({
           isLoaded: true,
           product: result.items,
@@ -163,7 +162,7 @@ class Detail extends React.Component {
       <div className="container mt-5">
         <div className="row pb-5 " style={{ borderBottom: '1px solid rgb(209, 203, 203)' }}>
           <div className="col-sm-5">
-            <img  src={"/images/"+this.state.product.mainimg} className="img-fluid mb-2" style={{ width: '100%'  }} alt={this.state.product.productID}/>
+            <img src={"/images/"+this.state.product.mainimg} className="img-fluid mb-2" style={{ width: '100%'}} alt={this.state.product.productID}/>
           </div>
           <div className="col-sm-7">
             <div className="mt-2">
@@ -247,7 +246,7 @@ class Detail extends React.Component {
           <img width={25} height={25} src={require('./../images/orangecheck.png')}/> 데이라이트 Check Point</h2>
         <div>
           <h4 className="mt-4">{this.state.product.descTitle1}</h4>
-          <p className="mt-3">{this.state.product.descript1}></p>
+          <p className="mt-3"><div dangerouslySetInnerHTML={{__html:this.state.product.descript1}} /></p>
         </div>
         <div>
           <h4 className="mt-4">{this.state.product.descTitle2}</h4>

@@ -21,17 +21,18 @@ class CartSection extends React.Component {
         //로그인 안했을 때 카트 들어오는 것 막기}
         else{
             this.props.history.push('/login');
-        }
+        };
         //fetch("cart.json")
         fetch("http://211.63.89.156/daylight/cart/"+userid)
             .then(res => res.json())
             .then((result) => {
-                    this.setState({
-                        isLoaded: true,
-                        items: result.items,
-                    });
-                    this.updateCart();
-                },
+                this.setState({
+                    isLoaded: true,
+                    items: result.items
+                });
+                this.updateCart();
+            
+            },
                 // Note: it's important to handle errors here
                 // instead of a catch() block so that we don't swallow
                 // exceptions from actual bugs in components.
@@ -41,9 +42,10 @@ class CartSection extends React.Component {
                     error
                 });
                 console.log(error);
-            }
+            })
             
     }
+
 
     updateCart() {
         console.log(this.state.items);
