@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import './css/LoginSignup.css';
 import {Link} from "react-router-dom";
+import axios from 'axios';
 
 export default class Login extends Component {
     constructor(props) {
@@ -34,45 +35,30 @@ export default class Login extends Component {
             email: this.loginEmail.value,
             passwd: this.loginPassword.value
         }
-        fetch('http://localhost:8080/SpringBootRESTAPIDemo/member/auth', {
-            method: 'POST',
+        axios({
+            method: 'post',
+            url: 'http://localhost:8080/member/auth',
+            data: JSON.stringify(send_param),
             headers: {
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Credentials': true,
-                'Accept': 'application/json',
-                'Access-Control-Allow-Origin': 'http://localhost:8080/'
-            },
-            body: JSON.stringify(send_param)
-        }).then(res => res.json())
-            .then((result) => {
-                this.setState({
-                        success: result.success
-                    }, (error) => {
-                        this.setState({
-                            success: true
-                        });
-                        console.log(error);
-                    }
-                )
-            });
-
-        if (this.state.success) {
-            localStorage.setItem("login_email", loginEmail);
-            this.props.history.push("/");
-            window.location.reload();
-        } else {
-            alert('로그인이 실패하였습니다.');
-            return false;
-        }
-        // 우선 무조건 성공.
-        localStorage.setItem("login_email", loginEmail);
-        const id = localStorage.getItem("login_email");
-        if (id === "admin") {
-            window.location.href = "/admin/main.html"
-        } else {
-            this.props.history.push("/");
-            window.location.reload();
-        }
+                'content-type': 'application/json'
+            }
+        }).then(res => {
+            console.log(res.data.success);
+            this.setState({success: res.data.success});
+            if (this.state.success) {
+                localStorage.setItem("login_email", loginEmail);
+                const id = localStorage.getItem("login_email");
+                if (id === "admin@admin.com") {
+                    window.location.href = "/admin/main.html"
+                } else {
+                    this.props.history.push("/");
+                    window.location.reload();
+                }
+            } else {
+                alert('로그인이 실패하였습니다.');
+                return false;
+            }
+        });
     }
 
     render() {

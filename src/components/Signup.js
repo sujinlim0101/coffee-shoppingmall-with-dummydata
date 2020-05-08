@@ -1,10 +1,9 @@
-  
-import React, {useState, useRef} from "react";
+import React, {useState} from "react";
 import DaumPostcode from "react-daum-postcode";
 import {Button, Modal} from "react-bootstrap";
 import './css/LoginSignup.css';
-import {useHistory} from "react-router-dom";
 import history from "./helpers/history";
+import axios from "axios";
 
 
 function SignUp() {
@@ -19,9 +18,6 @@ function SignUp() {
     function signup(e) {
         e.preventDefault();
         const regExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        // console.log('signup');
-        // history.push("/login");
-        // window.location.reload();
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
         const passwd = document.getElementById('passwd').value;
@@ -30,29 +26,29 @@ function SignUp() {
         const address2 = document.getElementById('address2').value;
         const phone = document.getElementById('phone').value;
 
-        if(name === ' '){
+        if (name === ' ') {
             alert('이름이 입력되지 않았습니다.');
             return false;
-        } else if(email === '') {
+        } else if (email === '') {
             alert('이메일이 입력되지 않았습니다.');
             return false;
         } else if (email.match(regExp) === null || email.match(regExp) === undefined) {
             alert("이메일 형식에 맞게 입력해주세요.");
             this.loginEmail.focus();
             return false;
-        } else if(passwd === '') {
+        } else if (passwd === '') {
             alert('비밀번호가 입력되지 않았습니다.');
             return false;
-        } else if(zonecode === '') {
+        } else if (zonecode === '') {
             alert('주소가 입력되지 않았습니다.');
             return false;
-        } else if(address1 === '') {
+        } else if (address1 === '') {
             alert('주소가 입력되지 않았습니다.');
             return false;
-        } else if(address2 === '') {
+        } else if (address2 === '') {
             alert('주소가 입력되지 않았습니다.');
             return false;
-        } else if(phone === '') {
+        } else if (phone === '') {
             alert('핸드폰이 입력되지 않았습니다.');
             return false;
         }
@@ -65,31 +61,24 @@ function SignUp() {
             address2,
             phone
         }
-        console.log(infos);
-
-        fetch('http://localhost:8080/SpringBootRESTAPIDemo/member/signup', {
-            method: 'POST',
+        axios({
+            method: 'post',
+            url: 'http://localhost:8080/member/auth',
+            data: JSON.stringify(infos),
             headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Credentials': true,
-                'Access-Control-Allow-Origin': 'http://localhost:8080/'
-            },
-            body: JSON.stringify(infos)
-        }).then(res => res.json())
-            .then((result) => {
-                if(result.success){
-                    setSuccess(true);
-                }
-            });
-
-        if(success){
-            this.props.history.push("/");
-            window.location.reload();
-        } else{
-            alert('회원 가입이 실패하였습니다.');
-            return false;
-        }
+                'content-type': 'application/json'
+            }
+        }).then(res => {
+            console.log(res.data.success);
+            this.setState({success: res.data.success});
+            if (this.state.success) {
+                this.props.history.push("/login");
+                window.location.reload();
+            } else {
+                alert('회원가입이 실패하였습니다. 확인 부탁드립니다.');
+                return false;
+            }
+        });
     }
 
     // 주소 받기
@@ -137,13 +126,17 @@ function SignUp() {
                     <label style={{fontSize: "15px"}}>비밀번호</label>
                     <input type="password" className="form-control" placeholder="비밀번호" id={'passwd'}/>
                 </div>
-                <div className="form-group" >
-                    <label className=""style={{fontSize: "15px"}}>주소</label> <Button variant="outline-dark" className="btn btn-outline-success mx-1 px-3" onClick={handleShow} style={{fontSize:"x-small"}}>검색</Button>
+                <div className="form-group">
+                    <label className="" style={{fontSize: "15px"}}>주소</label> <Button variant="outline-dark"
+                                                                                      className="btn btn-outline-success mx-1 px-3"
+                                                                                      onClick={handleShow}
+                                                                                      style={{fontSize: "x-small"}}>검색</Button>
                     <input type="text mb-1" placeholder="우편번호" className="form-control" disabled={true} value={zonecode}
-                        style={{width:"150px"}} id={'zonecode'}/>
+                           style={{width: "150px"}} id={'zonecode'}/>
                 </div>
-                <div className="form-group" >
-                    <input type="text" className="form-control" placeholder="주소" disabled={true} value={address} id={'address1'}/>
+                <div className="form-group">
+                    <input type="text" className="form-control" placeholder="주소" disabled={true} value={address}
+                           id={'address1'}/>
                 </div>
                 <div className="form-group">
                     <input type="text" className="form-control" placeholder="상세주소" id={'address2'}/>
