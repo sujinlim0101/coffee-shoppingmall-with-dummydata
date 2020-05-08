@@ -58,7 +58,16 @@ export default class Login extends Component {
                 alert('로그인이 실패하였습니다.');
                 return false;
             }
+        }, (error) =>{
+            alert('로그인이 실패하였습니다.');
+            console.log(error);
+            return false;
         });
+    }
+    loginPress = (e) =>{
+        if(e.key === 'Enter'){
+            this.login();
+        }
     }
 
     render() {
@@ -72,13 +81,13 @@ export default class Login extends Component {
                     <div className="form-group ">
                         <label>이메일</label>
                         <input name="email" type="email" className="form-control" placeholder="Enter email"
-                               ref={ref => this.loginEmail = ref}/>
+                               ref={ref => this.loginEmail = ref} onKeyPress={this.loginPress}/>
                     </div>
 
                     <div className="form-group">
                         <label>비밀번호</label>
                         <input name="password" type="password" className="form-control" placeholder="Enter password"
-                               ref={ref => this.loginPassword = ref}/>
+                               ref={ref => this.loginPassword = ref} onKeyPress={this.loginPress}/>
                     </div>
 
                     <div className="form-group">
