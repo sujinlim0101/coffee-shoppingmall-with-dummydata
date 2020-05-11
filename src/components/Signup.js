@@ -66,7 +66,7 @@ function SignUp() {
         }
         axios({
             method: 'post',
-            url: 'http://localhost:8080/member/auth',
+            url: 'http://211.63.89.156:8080/daylight/member/auth',
             data: JSON.stringify(infos),
             headers: {
                 'content-type': 'application/json'

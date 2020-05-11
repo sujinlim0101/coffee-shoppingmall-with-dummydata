@@ -1,11 +1,8 @@
 import React,{useState} from 'react';
-import Popover from 'react-bootstrap/Popover';
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 import Toast from 'react-bootstrap/Toast'
 
 class Detail extends React.Component {
-  //TODO: uerId 값을 context 또는 서버에서 처리.
   constructor(props) {
     super(props);
     this.state = {
@@ -63,7 +60,6 @@ class Detail extends React.Component {
       }
   
     const productID = this.props.match.params.productID;
-    //fetch('http://211.63.89.156:8080/daylight/products/'+productId)
       fetch('http://211.63.89.156:8080/daylight/products/'+productID)
       .then(res => res.json())
       .then((result) => {
@@ -72,11 +68,8 @@ class Detail extends React.Component {
           product: result.items,
           itemInfo: {ea:1, productID: productID}
         });
-        //console.log(productId);
       },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
+
         (error) => {
           this.setState({
             isLoaded: true,
@@ -88,13 +81,13 @@ class Detail extends React.Component {
   }
 
   order(){
-    fetch('http://211.63.89.156/daylight/detail/order/'+this.state.id,{
+    fetch('http://211.63.89.156:8080/daylight/detail/order/'+this.state.id,{
       method: 'POST', 
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
         'Access-Control-Allow-Credentials': true,
-        'Access-Control-Allow-Origin': 'http://211.63.89.156/', 
+        'Access-Control-Allow-Origin': 'http://211.63.89.156:8080/', 
       },
       body: JSON.stringify(this.state.itemInfo)
     })
@@ -102,10 +95,9 @@ class Detail extends React.Component {
     .then((result) => {
             this.props.history.push('/order/'+result.sellID);
         },
-             // Note: it's important to handle errors here
-               // instead of a catch() block so that we don't swallow
-              // exceptions from actual bugs in components.
+
         (error) => {
+            console.log(error);
             this.setState({
             isLoaded: true,
             error,
@@ -116,7 +108,7 @@ class Detail extends React.Component {
 
   addCart = () => {
     console.log(this.state.itemInfo);
-    fetch('http://211.63.89.147:8080/daylight/addcart/'+this.state.id,{
+    fetch('http://211.63.89.156:8080/daylight/addcart/'+this.state.id,{
       method: 'POST', 
       headers: {
         'Accept': 'application/json',

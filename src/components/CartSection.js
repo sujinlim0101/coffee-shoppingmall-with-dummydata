@@ -23,12 +23,12 @@ class CartSection extends React.Component {
             this.props.history.push('/login');
         };
         //fetch("cart.json")
-        fetch("http://211.63.89.156/daylight/cart/"+userid)
+        fetch("http://211.63.89.156:8080/daylight/cart/"+userid)
             .then(res => res.json())
             .then((result) => {
                 this.setState({
                     isLoaded: true,
-                    items: result.items
+                    items: result.resultcart
                 });
                 this.updateCart();
             
@@ -161,10 +161,10 @@ class CartSection extends React.Component {
         fetch('http://211.63.89.156:8080/daylight/order/'+this.state.userid, {
             method: 'POST', 
             headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json',
-              'Access-Control-Allow-Credentials': true,
-              'Access-Control-Allow-Origin': 'http://211.63.89.156:8080/daylight/', 
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Credentials': true,
+                'Access-Control-Allow-Origin': 'http://211.63.89.156:8080/', 
 
             },
             body: JSON.stringify(orderItems)
