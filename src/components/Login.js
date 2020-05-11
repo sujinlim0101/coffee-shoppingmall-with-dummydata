@@ -37,7 +37,7 @@ export default class Login extends Component {
         }
         axios({
             method: 'post',
-            url: 'http://211.63.89.147:8080/daylight/member/auth',
+            url: 'http://211.63.89.156:8080/daylight/member/auth',
             data: JSON.stringify(send_param),
             headers: {
                 'content-type': 'application/json'
@@ -49,7 +49,8 @@ export default class Login extends Component {
                 localStorage.setItem("login_email", loginEmail);
                 const id = localStorage.getItem("login_email");
                 if (id === "admin@admin.com") {
-                    window.location.href = "/admin/main.html"
+                    this.props.history.push("/admin/main.html");
+                    window.location.reload();
                 } else {
                     this.props.history.push("/");
                     window.location.reload();
@@ -58,14 +59,15 @@ export default class Login extends Component {
                 alert('로그인이 실패하였습니다.');
                 return false;
             }
-        }, (error) =>{
+        }, (error) => {
             alert('로그인이 실패하였습니다.');
             console.log(error);
             return false;
         });
     }
-    loginPress = (e) =>{
-        if(e.key === 'Enter'){
+
+    loginPress = (e) => {
+        if (e.key === 'Enter') {
             this.login();
         }
     }
@@ -89,6 +91,7 @@ export default class Login extends Component {
                         <input name="password" type="password" className="form-control" placeholder="Enter password"
                                ref={ref => this.loginPassword = ref} onKeyPress={this.loginPress}/>
                     </div>
+
 
                     <div className="form-group">
                         <div className="custom-control custom-checkbox">
