@@ -74,9 +74,7 @@ class CartSection extends React.Component {
             .then((result) => {
 
                 },
-                // Note: it's important to handle errors here
-                // instead of a catch() block so that we don't swallow
-                // exceptions from actual bugs in components.
+
                 (error) => {
                     this.setState({
                         isLoaded: true,
@@ -108,18 +106,6 @@ class CartSection extends React.Component {
         this.updateCart()
     }
 
-    delete() {
-        let list = [];
-        this.state.items.forEach(function (item) {
-            if (!item.checked) {
-                list.push(item);
-            }
-        });
-        this.setState({
-            items: list
-        });
-
-    }
 
     async deleteChecked() {
         const delete1 = () =>
@@ -136,7 +122,6 @@ class CartSection extends React.Component {
         }
         await delete1();
         this.updateCart();
-
     }
 
 
