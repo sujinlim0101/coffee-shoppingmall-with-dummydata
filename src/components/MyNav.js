@@ -18,7 +18,6 @@ class MyNav extends React.Component {
         let resultForm;
         const logout = () => {
             localStorage.removeItem("login_email");
-            window.location.reload();
         };
 
         const handleSelect = (selectedKey) => {
@@ -30,7 +29,7 @@ class MyNav extends React.Component {
                 resultForm = (
                     <>
                         <Nav.Link href="/cart" className="mx-2 userinfo"><FiShoppingCart style={{fontSize:"1.7em", color:"#504e4e"}}></FiShoppingCart></Nav.Link>
-                        <Nav.Link href="/logout" className="mx-2 userinfo" style={{fontSize:"12px", color:"rgb(72, 71, 71)",padding:"13px"}} onClick={logout} >로그아웃</Nav.Link>
+                        <Nav.Link href="/" className="mx-2 userinfo" style={{fontSize:"12px", color:"rgb(72, 71, 71)",padding:"13px"}} onClick={logout} >로그아웃</Nav.Link>
                     </>
                 );
                 return resultForm;
