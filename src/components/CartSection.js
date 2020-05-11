@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 class CartSection extends React.Component {
 
@@ -12,38 +12,39 @@ class CartSection extends React.Component {
     }
 
     componentDidMount() {
-        let userid =  localStorage.getItem('login_email');
-        if(userid){
+        let userid = localStorage.getItem('login_email');
+        if (userid) {
             this.setState({
-                userid:userid
+                userid: userid
             })
         }
         //로그인 안했을 때 카트 들어오는 것 막기}
-        else{
+        else {
             this.props.history.push('/login');
-        };
+        }
+        ;
         //fetch("cart.json")
-        fetch("http://211.63.89.156:8080/daylight/cart/"+userid)
+        fetch("http://211.63.89.156:8080/daylight/cart/" + userid)
             .then(res => res.json())
             .then((result) => {
-                this.setState({
-                    isLoaded: true,
-                    items: result.resultcart
-                });
-                this.updateCart();
-            
-            },
+                    this.setState({
+                        isLoaded: true,
+                        items: result.resultcart
+                    });
+                    this.updateCart();
+
+                },
                 // Note: it's important to handle errors here
                 // instead of a catch() block so that we don't swallow
                 // exceptions from actual bugs in components.
-            (error) => {
-                this.setState({
-                    isLoaded: true,
-                    error
-                });
-                console.log(error);
-            })
-            
+                (error) => {
+                    this.setState({
+                        isLoaded: true,
+                        error
+                    });
+                    console.log(error);
+                })
+
     }
 
 
@@ -58,20 +59,20 @@ class CartSection extends React.Component {
         this.setState({
             tot: total,
         })
-        fetch('http://211.63.89.156:8080/daylight/updatecart/'+this.state.userid, {
-            method: 'POST', 
+        fetch('http://211.63.89.156:8080/daylight/updatecart/' + this.state.userid, {
+            method: 'POST',
             headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json',
-              'Access-Control-Allow-Credentials': true,
-              'Access-Control-Allow-Origin': 'http://211.63.89.156:8080/', 
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Credentials': true,
+                'Access-Control-Allow-Origin': 'http://211.63.89.156:8080/',
 
             },
             body: JSON.stringify(this.state.items)
         })
             .then(res => res.json())
             .then((result) => {
-                    
+
                 },
 
                 (error) => {
@@ -105,19 +106,24 @@ class CartSection extends React.Component {
         this.updateCart()
     }
 
-    deleteChecked() {
-        let list = [];
-        this.state.items.forEach(function (item) {
-            if (!item.checked) {
-                list.push(item);
-            }
-        });
-         this.setState({
-            items: list
-        });
+
+    async deleteChecked() {
+        const delete1 = () =>
+        {
+            let list = [];
+            this.state.items.forEach(function (item) {
+                if (!item.checked) {
+                    list.push(item);
+                }
+            });
+            this.setState({
+                items: list
+            });
+        }
+        await delete1();
         this.updateCart();
     }
-    
+
 
     order() {
         let orderItems = [];
@@ -127,7 +133,7 @@ class CartSection extends React.Component {
                 console.log(orderItems);
             }
         })
-        
+
         // fetch('/order.json')
         // .then(res => res.json())
         // .then((result) => {
@@ -143,20 +149,20 @@ class CartSection extends React.Component {
         // });
         // console.log(error);
         // })
-        fetch('http://211.63.89.156:8080/daylight/order/'+this.state.userid, {
-            method: 'POST', 
+        fetch('http://211.63.89.156:8080/daylight/order/' + this.state.userid, {
+            method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Credentials': true,
-                'Access-Control-Allow-Origin': 'http://211.63.89.156:8080/', 
+                'Access-Control-Allow-Origin': 'http://211.63.89.156:8080/',
 
             },
             body: JSON.stringify(orderItems)
         })
             .then(res => res.json())
             .then((result) => {
-                    this.props.history.push('/order/'+result.sellID);
+                    this.props.history.push('/order/' + result.sellID);
                 },
                 // Note: it's important to handle errors here
                 // instead of a catch() block so that we don't swallow
@@ -215,9 +221,10 @@ class CartSection extends React.Component {
                             return (
                                 <tr className="" key={i}>
                                     <td style={{itemAlign: "center"}}><input type="checkbox" checked={item.checked}
-                                        onChange={this.check.bind(this, i)}/>
+                                                                             onChange={this.check.bind(this, i)}/>
                                         <Link to={`products/${item.productID}`}>
-                                            <img className="ml-3 img-fluid" src={"/images/"+item.mainimg} width={60} height={80} alt={item.title}/>
+                                            <img className="ml-3 img-fluid" src={"/images/" + item.mainimg} width={60}
+                                                 height={80} alt={item.title}/>
                                         </Link>
                                     </td>
                                     <td className="">
@@ -253,7 +260,8 @@ class CartSection extends React.Component {
                                                             textAlign: "center",
                                                             height: "22px",
                                                             fontSize: "5px",
-                                                            float: "left"}} >+
+                                                            float: "left"
+                                                        }}>+
                                                 </button>
                                             </div>
                                         </div>
