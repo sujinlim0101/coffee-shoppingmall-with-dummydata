@@ -13,8 +13,6 @@ function SignUp() {
     const [address, setAddress] = useState('');
     const [zonecode, setZonecode] = useState('');
 
-    const [success, setSuccess] = useState(false);
-
     function signup(e) {
         e.preventDefault();
         const regExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -66,16 +64,14 @@ function SignUp() {
         }
         axios({
             method: 'post',
-            url: 'http://localhost:8080/member/auth',
+            url: 'http://211.63.89.156:8080/daylight/member/signup',
             data: JSON.stringify(infos),
             headers: {
                 'content-type': 'application/json'
             }
         }).then(res => {
-            console.log(res.data.success);
-            this.setState({success: res.data.success});
-            if (this.state.success) {
-                this.props.history.push("/login");
+            if (res.data.success) {
+                history.push("/login");
                 window.location.reload();
             } else {
                 alert('회원가입이 실패하였습니다. 확인 부탁드립니다.');
@@ -103,9 +99,6 @@ function SignUp() {
 
         setAddress(fullAddress);
         setZonecode(data.zonecode);
-        console.log(address);
-        console.log(data.zonecode);
-        console.log(fullAddress);
         history.push("/login");
 
     }
