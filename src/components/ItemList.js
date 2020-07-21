@@ -12,20 +12,20 @@ class ItemList extends React.Component {
         
         switch (props.item) {
             case 'featuredBeans':
-                this.state.url = "http://211.63.89.156:8080/daylight/featuredbeans"
+                this.state.url = "/featuredbeans.json"
                 //this.state.url = '/featuredBeans.json';
                 break;
             case 'featuredTools':
-                this.state.url = "http://211.63.89.156:8080/daylight/featuredtools"
+                this.state.url = "/featuredtools.json"
                 break;
             //this.state.url = "http://211.63.89.154:8080/SpringBootRestAPIDemo/beans"
            case 'beans':
                //"http://211.63.89.147:8080/daylight/beans"
-            this.state.url = "http://211.63.89.156:8080/daylight/beans"
+            this.state.url = "/beans.json"
                 break;
             //this.state.url = "http://211.63.89.154:8080/SpringBootRestAPIDemo/tools"
             case 'tools':
-                this.state.url = "http://211.63.89.156:8080/daylight/tools"
+                this.state.url = "/tools.json"
                 break;
             default:
                 alert('Never get here');

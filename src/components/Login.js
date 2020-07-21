@@ -31,39 +31,44 @@ export default class Login extends Component {
         }
 
         // 서버에서 받아올 것에 새로운 email, password 더해서 전달
-        const send_param = {
-            email: this.loginEmail.value,
-            password: this.loginPassword.value
+        if(loginEmail === "abcd@abcd.com" && loginPassword === "abcd" ) {
+            localStorage.setItem("login_email", loginEmail);
+            this.setState({success: true});
+            this.props.history.push("/");
+            window.location.reload();
+        } else {
+            alert("로그인에 실패했습니다. 계정정보를 다시한번 입력해주세요.")
         }
-        axios({
-            method: 'post',
-            url: 'http://211.63.89.156:8080/daylight/member/auth',
-            data: JSON.stringify(send_param),
-            headers: {
-                'content-type': 'application/json'
-            }
-        }).then(res => {
-            console.log(res.data.success);
-            this.setState({success: res.data.success});
-            if (this.state.success) {
-                localStorage.setItem("login_email", loginEmail);
-                const id = localStorage.getItem("login_email");
-                if (id === "admin@admin.com") {
-                    this.props.history.push("/admin/main.html");
-                    window.location.reload();
-                } else {
-                    this.props.history.push("/");
-                    window.location.reload();
-                }
-            } else {
-                alert('로그인이 실패하였습니다.');
-                return false;
-            }
-        }, (error) => {
-            alert('로그인이 실패하였습니다.');
-            console.log(error);
-            return false;
-        });
+        
+        // axios({
+        //     method: 'post',
+        //     url: 'http://211.63.89.156:8080/daylight/member/auth',
+        //     data: JSON.stringify(send_param),
+        //     headers: {
+        //         'content-type': 'application/json'
+        //     }
+        // }).then(res => {
+        //     console.log(res.data.success);
+        //     this.setState({success: res.data.success});
+        //     if (this.state.success) {
+        //         localStorage.setItem("login_email", loginEmail);
+        //         const id = localStorage.getItem("login_email");
+        //         if (id === "admin@admin.com") {
+        //             this.props.history.push("/admin/main.html");
+        //             window.location.reload();
+        //         } else {
+        //             this.props.history.push("/");
+        //             window.location.reload();
+        //         }
+        //     } else {
+        //         alert('로그인이 실패하였습니다.');
+        //         return false;
+        //     }
+        // }, (error) => {
+        //     alert('로그인이 실패하였습니다.');
+        //     console.log(error);
+        //     return false;
+        // });
     }
 
     loginPress = (e) => {
@@ -103,8 +108,10 @@ export default class Login extends Component {
                     <p className="mt-4" style={{fontSize: "small"}}>아직 회원이 아니시라면? <Link to="./signup"
                                                                                         style={{fontSize: "small"}}> 회원가입</Link>
                     </p>
+                    abcd@abcd.com / abcd 로 로그인할 수 있습니다.
 
                 </div>
+                
             </div>
         );
     }

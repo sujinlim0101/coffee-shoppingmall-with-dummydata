@@ -60,7 +60,7 @@ class Detail extends React.Component {
       }
   
     const productID = this.props.match.params.productID;
-      fetch('http://211.63.89.156:8080/daylight/products/'+productID)
+      fetch('/B0000001.json')
       .then(res => res.json())
       .then((result) => {
         this.setState({
@@ -81,59 +81,67 @@ class Detail extends React.Component {
   }
 
   order(){
-    fetch('http://211.63.89.156:8080/daylight/detail/order/'+this.state.id,{
-      method: 'POST', 
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Credentials': true,
-        'Access-Control-Allow-Origin': 'http://211.63.89.156:8080/', 
-      },
-      body: JSON.stringify(this.state.itemInfo)
+    this.setState({
+      show:true,
+      message:"실패했습니다. 잠시 후 다시 시도해주세요."
     })
-    .then(res => res.json())
-    .then((result) => {
-            this.props.history.push('/order/'+result.sellID);
-        },
+    // fetch('http://211.63.89.156:8080/daylight/detail/order/'+this.state.id,{
+    //   method: 'POST', 
+    //   headers: {
+    //     'Accept': 'application/json',
+    //     'Content-Type': 'application/json',
+    //     'Access-Control-Allow-Credentials': true,
+    //     'Access-Control-Allow-Origin': 'http://211.63.89.156:8080/', 
+    //   },
+    //   body: JSON.stringify(this.state.itemInfo)
+    // })
+    // .then(res => res.json())
+    // .then((result) => {
+    //         this.props.history.push('/order/'+result.sellID);
+    //     },
 
-        (error) => {
-            console.log(error);
-            this.setState({
-            isLoaded: true,
-            error,
-        });
-        alert("결제에 실패했습니다. 잠시후 다시 시도해주세요.");
-        })
+    //     (error) => {
+    //         console.log(error);
+    //         this.setState({
+    //         isLoaded: true,
+    //         error,
+    //     });
+    //     alert("결제에 실패했습니다. 잠시후 다시 시도해주세요.");
+    //     })
   }
 
   addCart = () => {
-    console.log(this.state.itemInfo);
-    fetch('http://211.63.89.156:8080/daylight/addcart/'+this.state.id,{
-      method: 'POST', 
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Credentials': true,
-        'Access-Control-Allow-Origin': 'http://211.63.89.147:8080/',
-      },
-      body: JSON.stringify(this.state.itemInfo)
+    this.setState({
+      show:true,
+      message:"실패했습니다. 잠시 후 다시 시도해주세요."
     })
-    .then(res => res.json())
-    .then((result) => {
-      this.setState({
-        show:true,
-        message:"장바구니에 추가되었습니다. "
-        }
-      )
-    }
-    ,(error) =>{
-      this.setState({
-        show:true,
-        message:"실패했습니다. 잠시 후 다시 시도해주세요."
-        }
-      )
-      console.log(error);
-    })
+    // console.log(this.state.itemInfo);
+    // fetch('http://211.63.89.156:8080/daylight/addcart/'+this.state.id,{
+    //   method: 'POST', 
+    //   headers: {
+    //     'Accept': 'application/json',
+    //     'Content-Type': 'application/json',
+    //     'Access-Control-Allow-Credentials': true,
+    //     'Access-Control-Allow-Origin': 'http://211.63.89.147:8080/',
+    //   },
+    //   body: JSON.stringify(this.state.itemInfo)
+    // })
+    // .then(res => res.json())
+    // .then((result) => {
+    //   this.setState({
+    //     show:true,
+    //     message:"장바구니에 추가되었습니다. "
+    //     }
+    //   )
+    // }
+    // ,(error) =>{
+    //   this.setState({
+    //     show:true,
+    //     message:"실패했습니다. 잠시 후 다시 시도해주세요."
+    //     }
+    //   )
+    //   console.log(error);
+    // })
   }
   closeShow() {
     this.setState({

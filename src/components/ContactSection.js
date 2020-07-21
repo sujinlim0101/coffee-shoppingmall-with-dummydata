@@ -28,7 +28,7 @@ class ContactSection extends React.Component{
                     <p>꼭 결정한 후에 상담할 필요는 없어요.</p>
                     <p>편한 마음으로 저희에게 연락주세요!</p>
                     <p className="mb-5">소매/도매커피에 대해 상담을 진행하고 있습니다! </p>
-                    Contact : <a href="mailto:mimitn@hanmail.net" style={{color:"#ff6600", fontWeight:"bold"}}>데이라이트<button className="btn btn-outline-secondary mx-2" type="button" style={{fontSize:"small"}}>Mail</button></a><br/> 
+                    Contact : <a href="mailto:sujinlim716800@gmail.com" style={{color:"#ff6600", fontWeight:"bold"}}>데이라이트<button className="btn btn-outline-secondary mx-2" type="button" style={{fontSize:"small"}}>Mail</button></a><br/> 
               
                 </div>
             </div>

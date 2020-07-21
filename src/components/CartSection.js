@@ -24,7 +24,7 @@ class CartSection extends React.Component {
         }
         ;
         //fetch("cart.json")
-        fetch("http://211.63.89.156:8080/daylight/cart/" + userid)
+        fetch("/cart.json")
             .then(res => res.json())
             .then((result) => {
                     this.setState({
@@ -126,54 +126,40 @@ class CartSection extends React.Component {
 
 
     order() {
-        let orderItems = [];
-        this.state.items.forEach(function (item) {
-            if (item.checked) {
-                orderItems.push(item);
-                console.log(orderItems);
-            }
-        })
-
-        // fetch('/order.json')
-        // .then(res => res.json())
-        // .then((result) => {
-        //     this.props.history.push('/order/'+result.sellID);
-        // },
-        //      // Note: it's important to handle errors here
-        //        // instead of a catch() block so that we don't swallow
-        //       // exceptions from actual bugs in components.
-        // (error) => {
-        //     this.setState({
-        //     isLoaded: true,
-        //     error
-        // });
-        // console.log(error);
+        this.props.history.push('/order/o12911');
+        // let orderItems = [];
+        // this.state.items.forEach(function (item) {
+        //     if (item.checked) {
+        //         orderItems.push(item);
+        //         console.log(orderItems);
+        //     }
         // })
-        fetch('http://211.63.89.156:8080/daylight/order/' + this.state.userid, {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Credentials': true,
-                'Access-Control-Allow-Origin': 'http://211.63.89.156:8080/',
 
-            },
-            body: JSON.stringify(orderItems)
-        })
-            .then(res => res.json())
-            .then((result) => {
-                    this.props.history.push('/order/' + result.sellID);
-                },
-                // Note: it's important to handle errors here
-                // instead of a catch() block so that we don't swallow
-                // exceptions from actual bugs in components.
-                (error) => {
-                    this.setState({
-                        isLoaded: true,
-                        error
-                    });
-                    console.log(error);
-                })
+        // fetch('http://211.63.89.156:8080/daylight/order/' + this.state.userid, {
+        //     method: 'POST',
+        //     headers: {
+        //         'Accept': 'application/json',
+        //         'Content-Type': 'application/json',
+        //         'Access-Control-Allow-Credentials': true,
+        //         'Access-Control-Allow-Origin': 'http://211.63.89.156:8080/',
+
+        //     },
+        //     body: JSON.stringify(orderItems)
+        // })
+        //     .then(res => res.json())
+        //     .then((result) => {
+        //             this.props.history.push('/order/' + result.sellID);
+        //         },
+        //         // Note: it's important to handle errors here
+        //         // instead of a catch() block so that we don't swallow
+        //         // exceptions from actual bugs in components.
+        //         (error) => {
+        //             this.setState({
+        //                 isLoaded: true,
+        //                 error
+        //             });
+        //             console.log(error);
+        //         })
     }
 
     add(index, item, e) {

@@ -9,6 +9,8 @@ class OrderSection extends React.Component{
         }
     }
     componentDidMount() {
+        window.scrollTo(0, 0);
+
         const sellId = this.props.match.params.sellID;
         this.setState({sellId});
     }
@@ -20,8 +22,8 @@ class OrderSection extends React.Component{
                     <h5 className="pb-2">짝짝! 주문이 완료됐습니다.</h5>
                     <p>맛있고 신선한 원두만을 보내드릴게요.</p>
                 </div>
-                        <p className="mt-4 mr-5" style={{ color:"gray",textAlign:"right"}}> 주문번호 : {this.state.sellId} </p>
-                        <Link to="/"><button className="mt-5 btn btn-success" style={{float: "center" ,width:"150px"}}>확인</button></Link>
+                <p className="mt-4 mr-5" style={{ color:"gray",textAlign:"right"}}> 주문번호 : {this.state.sellId} </p>
+                    <Link to="/"><button className="mt-5 btn btn-success" style={{float: "center" ,width:"150px"}}>확인</button></Link>
             </div>
         )   
     }

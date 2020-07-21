@@ -1,0 +1,25 @@
+{
+    "resultcart": [
+        {"id": 1,
+        "title":"\uc778\ub3c4\ub124\uc2dc\uc544 \ub9cc\ub378\ub9c1 \ucea1\uc290 \ucee4\ud53c",
+        "ea" :2,
+        "price":15000,
+        "mainimg":  "B0000001_main.png",
+        "checked":true
+        },
+        {"id": 2,
+        "title":"\ucf54\uc2a4\ud0c0\ub9ac\uce74 \ub530\ub77c\uc8fc \ucea1\uc290 \ucee4\ud53c",
+        "ea" :1,
+        "price":15000,
+        "mainimg":  "B0000002_main.png",
+        "checked":true
+        },
+        {"id": 3,
+        "title":"\uc544\ud504\ub9ac\uce74 \ucf00\ub0d0 AA \ucea1\uc290 \ucee4\ud53c",
+        "ea" :3,
+        "price":15000,
+        "mainimg":  "B0000003_main.png",
+        "checked":true
+        }
+    ]
+} 
